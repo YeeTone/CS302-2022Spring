@@ -1,5 +1,5 @@
 # Week1 Report
-姓名：Yitong WANG
+姓名：Yitong WANG(王奕童)
 
 学号：11910104
 
