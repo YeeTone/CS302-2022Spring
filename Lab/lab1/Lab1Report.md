@@ -12,12 +12,14 @@
 - Yushan WANG(王宇杉) 11813002@mail.sustech.edu.cn
 
 ## Q1
+实验课环境要求ubuntu系统用户名包含学号。
+
 Ubuntu系统用户名为wyt11910104，如下图所示
 ![image](https://user-images.githubusercontent.com/64548919/154632213-4dfddf4b-0f25-467e-88f0-c5f9e358f585.png)
 
 
 ## Q2
-- $表示命令提示符
+- $表示命令提示符，前面的文字表示当前工作路径。
 
 - 更改terminal当前执行目录路径：使用cd命令
   - cd .. 表示跳转至上级目录
@@ -44,7 +46,7 @@ find *.c
 ```
 chmod 537 test.txt
 ```
-考虑到537的三位二进制表示法：5 -> 101, 3 -> 011, 7 -> 111，即为r-x-wxrwx，这里表示该文件的权限修改为：
+考虑到537的三位二进制表示法：5 -> 101, 3 -> 011, 7 -> 111，即为r-x-wxrwx，这里表示当前目录下的test.txt文件的权限修改为：
 - user：可读，不可写，可执行
 - group：不可读，可写，可执行
 - other：可读，可写，可执行
