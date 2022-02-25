@@ -24,12 +24,12 @@ ps[5] += 2, ps[5]
 
 ## Q2
 
-![image](https://user-images.githubusercontent.com/64548919/155713688-8c8eb22d-f675-4793-8469-45f7ad01ede9.png)
+![image](https://user-images.githubusercontent.com/64548919/155714896-b33f00c4-9b03-4597-b63d-8bd02f775daf.png)
 
 ## Q3
 
-![image](https://user-images.githubusercontent.com/64548919/155713640-0fbd5dfc-3506-4d9e-a6a1-f30a53211330.png)
+![image](https://user-images.githubusercontent.com/64548919/155714926-47a2df8f-0cc6-46cc-97e5-b2e066eae5c9.png)
 
 ## Q4
-![image](https://user-images.githubusercontent.com/64548919/155713593-ebc1dc07-f866-453c-aebb-e7a1b1432788.png)
+![image](https://user-images.githubusercontent.com/64548919/155714952-601ed806-4509-46b6-a6ff-9c46a8e36f38.png)
 
