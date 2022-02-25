@@ -26,3 +26,6 @@ ps[5] += 2, ps[5]
 
 ![image](https://user-images.githubusercontent.com/64548919/155693703-8eb5e4ca-028b-49f0-8346-b4a46872cd43.png)
 
+## Q3
+
+![image](https://user-images.githubusercontent.com/64548919/155695247-17b2f16a-3acd-49a8-923a-d210ed7964bd.png)
