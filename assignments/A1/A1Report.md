@@ -31,4 +31,4 @@ ps[5] += 2, ps[5]
 ![image](https://user-images.githubusercontent.com/64548919/155695247-17b2f16a-3acd-49a8-923a-d210ed7964bd.png)
 
 ## Q4
-![image](https://user-images.githubusercontent.com/64548919/155697427-9f6f1723-395c-4ac0-ada9-ca2afd00f8b2.png)
+![image](https://user-images.githubusercontent.com/64548919/155697494-c385f6d5-281a-46d6-98e2-4370935f4607.png)
