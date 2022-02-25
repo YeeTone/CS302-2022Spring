@@ -24,7 +24,7 @@ ps[5] += 2, ps[5]
 
 ## Q2
 
-![image](https://user-images.githubusercontent.com/64548919/155714896-b33f00c4-9b03-4597-b63d-8bd02f775daf.png)
+![image](https://user-images.githubusercontent.com/64548919/155715263-b343a99f-1855-4c4a-8cfd-ad42f5076a2f.png)
 
 ## Q3
 
