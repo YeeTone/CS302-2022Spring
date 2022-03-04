@@ -36,6 +36,8 @@
   - 重定位各个段的起始地址
   - 重定位各个符号的最终地址
 
+> Reference
+
 > https://blog.csdn.net/ehuangdan5864/article/details/107744789
 
 > https://www.yisu.com/zixun/5633.html
