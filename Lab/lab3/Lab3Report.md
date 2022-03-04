@@ -30,13 +30,9 @@
 - BIN：raw binary，只包含机器码，是将ELF文件中的代码段，数据段，以及其他自定义段抽取出来形成的一个内存的镜像。OpenSBI可以直接运行。
 
 > Reference
-
 > https://blog.csdn.net/chengf223/article/details/121639975
-
 > http://blog.chinaunix.net/uid-25100840-id-2853463.html
-
 > https://blog.csdn.net/soitis1121/article/details/8284425
-
 > https://cloud.tencent.com/developer/ask/109491
 
 ## Q3: 链接脚本的作用
@@ -47,9 +43,7 @@
   - 重定位各个符号的最终地址
 
 > Reference
-
 > https://blog.csdn.net/ehuangdan5864/article/details/107744789
-
 > https://www.yisu.com/zixun/5633.html
 
 ## Q4: init.c打印特定字符串
