@@ -64,7 +64,7 @@
 
 ![image](https://user-images.githubusercontent.com/64548919/156718277-e8036f75-a5dc-4743-b01b-9b72af66a5bf.png)
 
-- 打开```lab3/libs```目录下的```stdio.c```，添加添加```double_puts()```函数的声明。
+- 打开```lab3/libs```目录下的```stdio.c```，添加```double_puts()```函数的声明。
 
 ![image](https://user-images.githubusercontent.com/64548919/156718443-cd345969-6952-4a99-9d78-9ee3f7665c7d.png)
 
