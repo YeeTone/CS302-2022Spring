@@ -40,7 +40,6 @@ int main()
         }
     }
 
-    qsort(students, n, sizeof(struct Student), cmp);
 
     printf("Output:\n");
     for (int i = 0; i < n; ++i) {
