@@ -23,3 +23,19 @@
 - 使用```make qemu```命令，启动最小化内核
 
 ![image](https://user-images.githubusercontent.com/64548919/156711306-a9958eb8-e4bd-48d1-ae20-f34437548b7c.png)
+
+## Q2: elf和bin文件的区别
+
+- ELF: executable and link format, 包含符号表，汇编，调试信息等等，可以指定程序每个section的内存布局，不能直接运行，需要完整的操作系统来解析运行。OpenSBI不能直接运行elf文件。
+- BIN：raw binary，只包含机器码，是将ELF文件中的代码段，数据段，以及其他自定义段抽取出来形成的一个内存的镜像。OpenSBI可以直接运行。
+
+## Q3: 链接脚本的作用
+- 链接器：将输入文件链接成输出文件，可以将各种代码和数据片段收集起来组合成单一文件。链接过程可能发生在编译，内存加载，程序执行的时候。
+- 链接脚本：描述如何将输入文件的section，映射到输出文件的section，并规定这些section的内存布局。链接脚本用于描述链接器处理目标文件和库文件的方式，如：
+  - 合并各个目标文件的段
+  - 重定位各个段的起始地址
+  - 重定位各个符号的最终地址
+
+> https://blog.csdn.net/ehuangdan5864/article/details/107744789
+
+> https://www.yisu.com/zixun/5633.html
