@@ -47,4 +47,3 @@
 然后考虑输入```qemu-system-riscv64 -device loader,help```查询名为loader的driver可用的参数列表：
 
 ![image](https://user-images.githubusercontent.com/64548919/156990837-c06bf909-cfe3-4c16-b79a-6be209aa3cd6.png)
-
