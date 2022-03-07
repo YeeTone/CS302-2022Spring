@@ -63,15 +63,45 @@ OUTPUT_ARCH(riscv)
 
 这句话表示设置输出文件对应的处理器架构为RiscV。
 
+> Reference
+
+> https://www.cnblogs.com/ICkeeper/p/15514775.html
+
 ```
 ENTRY(kern_entry)
 ```
 
-这句话表示Entry Point **(EP)**，是BIOS移动完内核后，直接跳转的地址。而kern_entry是体系相关的汇编语言实现的。
+这句话表示Entry Point **(EP)**，是BIOS移动完内核后，直接跳转的地址，是程序的入口。而kern_entry是体系相关的汇编语言实现的。
+
+> Reference
+
+> https://blog.csdn.net/wangyao199252/article/details/74938761
+
+> https://sourceware.org/binutils/docs/ld/Entry-Point.html#Entry-Point
 
 ```
-Reference
-https://www.cnblogs.com/ICkeeper/p/15514775.html
-https://blog.csdn.net/wangyao199252/article/details/74938761
-https://sourceware.org/binutils/docs/ld/Entry-Point.html#Entry-Point
+BASE_ADDRESS = 0x80200000;
+```
+
+表示基地址，是低地址，链接脚本会从基地址放置.text, .rodata等等数据段。
+
+
+```
+SECTIONS
+{
+   ...
+}
+```
+这部分是链接脚本的整体，是用于描述整个内存布局，其内有输入段，输出段等等数据段。
+
+
+```
+. = BASE_ADDRESS;
+```
+这句话表示当前地址，让设置的地址从低地址往高地址做段的放置操作。这条语句的作用是记录当前段的地址```.```.
+
+```
+.text : {
+    *(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)
+}
 ```
