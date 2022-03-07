@@ -61,10 +61,17 @@
 OUTPUT_ARCH(riscv)
 ```
 
-这句话表示设置输出文件对应的处理器架构为RiscV。（参考链接：https://www.cnblogs.com/ICkeeper/p/15514775.html ）
+这句话表示设置输出文件对应的处理器架构为RiscV。
 
 ```
 ENTRY(kern_entry)
 ```
 
-这句话表示Entry Point **(EP)**，是BIOS移动完内核后，直接跳转的地址。而kern_entry是体系相关的汇编语言实现的。（参考链接：https://blog.csdn.net/wangyao199252/article/details/74938761 ）
+这句话表示Entry Point **(EP)**，是BIOS移动完内核后，直接跳转的地址。而kern_entry是体系相关的汇编语言实现的。
+
+```
+Reference
+https://www.cnblogs.com/ICkeeper/p/15514775.html
+https://blog.csdn.net/wangyao199252/article/details/74938761
+https://sourceware.org/binutils/docs/ld/Entry-Point.html#Entry-Point
+```
