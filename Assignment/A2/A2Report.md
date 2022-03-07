@@ -105,3 +105,4 @@ SECTIONS
     *(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)
 }
 ```
+```.text```段即为代码段，里面的```*(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)```会指示将工程中所有目标文件的```.text.kern_entry```，```.text```， ```.stub```，```.text.*```，```.gnu.linkonce.t.*```都链接到FLASH中
