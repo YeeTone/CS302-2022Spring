@@ -114,8 +114,17 @@ SECTIONS
 ```
 PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
 ```
-provide关键字用于定义一个符号，如```etext```。如果程序中再次定义了该符号，则使用程序中定义的，否则则使用链接器脚本中的定义。这里是将```.```所代表的的地址值赋值给```etext```。
+```provide```关键字用于定义一个符号，如```etext```。如果程序中再次定义了该符号，则使用程序中定义的，否则则使用链接器脚本中的定义。这里是将```.```所代表的的地址值赋值给```etext```。
 
 > Reference
 
 > https://blog.csdn.net/x13015851932/article/details/48253695
+
+```
+.rodata : {
+   *(.rodata .rodata.* .gnu.linkonce.r.*)
+}
+```
+
+```.rodata```字段用于定义**read-only data**，用于保存只读数据。
+
