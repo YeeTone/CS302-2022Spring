@@ -105,4 +105,17 @@ SECTIONS
     *(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)
 }
 ```
-```.text```段即为代码段，里面的```*(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)```会指示将工程中所有目标文件的```.text.kern_entry```，```.text```， ```.stub```，```.text.*```，```.gnu.linkonce.t.*```都链接到FLASH中
+```.text```段即为代码段，里面的```*(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)```会指示将工程中所有目标文件的```.text.kern_entry```，```.text```， ```.stub```，```.text.*```，```.gnu.linkonce.t.*```都链接到FLASH中。
+
+> Reference
+
+> https://www.cnblogs.com/dylancao/p/9228885.html
+
+```
+PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
+```
+provide关键字用于定义一个符号，如```etext```。如果程序中再次定义了该符号，则使用程序中定义的，否则则使用链接器脚本中的定义。这里是将```.```所代表的的地址值赋值给```etext```。
+
+> Reference
+
+> https://blog.csdn.net/x13015851932/article/details/48253695
