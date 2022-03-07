@@ -47,3 +47,24 @@
 然后考虑输入```qemu-system-riscv64 -device loader,help```查询名为loader的driver可用的参数列表：
 
 ![image](https://user-images.githubusercontent.com/64548919/156990837-c06bf909-cfe3-4c16-b79a-6be209aa3cd6.png)
+
+## Q2 kernel.ld文件中每一行的作用
+
+```
+/* Simple linker script for the ucore kernel.
+   See the GNU ld 'info' manual ("info ld") to learn the syntax. */
+```
+
+这一段是简单的注释，编译器会无视该部分。
+
+```
+OUTPUT_ARCH(riscv)
+```
+
+这句话表示设置输出文件对应的处理器架构为RiscV。（参考链接：https://www.cnblogs.com/ICkeeper/p/15514775.html ）
+
+```
+ENTRY(kern_entry)
+```
+
+这句话表示Entry Point **(EP)**，是BIOS移动完内核后，直接跳转的地址。而kern_entry是体系相关的汇编语言实现的。（参考链接：https://blog.csdn.net/wangyao199252/article/details/74938761 ）
