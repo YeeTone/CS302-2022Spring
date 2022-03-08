@@ -152,6 +152,8 @@ PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
 PROVIDE(edata = .);
 ```
 
+如之前所介绍，这里是定义```edata```符号，并将```.```所代表的地址值赋值给```edata```。
+
 ```
 .bss : {
    *(.bss)
@@ -163,6 +165,8 @@ PROVIDE(edata = .);
 ```
 PROVIDE(end = .);
 ```
+
+如之前所介绍，这里是定义```end```符号，并将```.```所代表的地址值赋值给```end```。
 
 ```
 /DISCARD/ : {
