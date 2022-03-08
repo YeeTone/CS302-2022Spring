@@ -105,7 +105,7 @@ SECTIONS
     *(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)
 }
 ```
-```.text```段即为代码段，里面的```*(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)```会指示将工程中所有目标文件的```.text.kern_entry```，```.text```， ```.stub```，```.text.*```，```.gnu.linkonce.t.*```都链接到FLASH中。
+```.text```段即为代码段，里面的```*(.text.kern_entry .text .stub .text.* .gnu.linkonce.t.*)```会指示将工程中所有目标文件的```.text.kern_entry```，```.text```， ```.stub```，```.text.*```，```.gnu.linkonce.t.*```都链接到FLASH中。其中```*```是通配符，可以匹配符合前缀的任意文件。```.text```表示代码段的起始地址。
 
 > Reference
 
@@ -126,12 +126,14 @@ PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
 }
 ```
 
-```.rodata```字段用于定义**read-only data**，用于保存只读数据。
+```.rodata```字段用于定义**read-only data**，用于保存只读数据。里面的```*(.rodata .rodata.* .gnu.linkonce.r.*)```会指示将工程中所有目标文件的```.rodata```，```.rodata.*```， ```.gnu.linkonce.r.*```文件都链接到FLASH中。其中```*```是通配符，可以匹配符合前缀的任意文件。
 
 ```
 /* Adjust the address for the data segment to the next page */
     . = ALIGN(0x1000);
 ```
+
+如之前所述，这条语句的作用是重设当前段的地址```.```。其中```ALIGN(0x1000)```表示按照指定的边界进行排列，里面的参数必须是2的倍数。
 
 ```
 /* The data segment */
@@ -141,12 +143,16 @@ PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
 }
 ```
 
+这里前一句是注释，编译器无视之。后面是用于定义```data```字段（数据段），里面会指示将工程中所有目标文件的```.data```，```.data.*```文件都链接到FLASH中。其中要注意：```data```字段是用于保存初始化的全局数据。```.data```是一个地址，表示代码段的结束地址，也是数据段的起始地址。
+
 ```
 .sdata : {
    *(.sdata)
    *(.sdata.*)
 }
 ```
+
+这里是用于定义```sdata```字段，它包含初始化的全局小数据，里面会指示将工程中所有目标文件的```.sdata```，```.sdata.*```文件都链接到FLASH中。
 
 ```
 PROVIDE(edata = .);
@@ -162,14 +168,26 @@ PROVIDE(edata = .);
 }
 ```
 
+这里是用于定义```bss```字段，它包含未初始化的全局数据，里面会指示将工程中所有目标文件的```.bss```，```.bss.*```，```.sbss*```文件都链接到FLASH中。```.bss```是一个地址，表示数据段的结束地址和BSS段的起始地址。
+
+> Reference
+
+> https://www.wenjiangs.com/doc/b5owlkja
+
 ```
 PROVIDE(end = .);
 ```
 
-如之前所介绍，这里是定义```end```符号，并将```.```所代表的地址值赋值给```end```。
+如之前所介绍，这里是定义```end```符号，并将```.```所代表的地址值赋值给```end```。```end```表示BSS段的结束地址。
 
 ```
 /DISCARD/ : {
    *(.eh_frame .note.GNU-stack)
 }
 ```
+
+```/DISCARD/```关键字的作用是舍弃指定段，不会出现在输出文件中。在这里是舍弃掉```.eh_frame```和```.note.GNU-stack````段。
+
+> Reference
+
+> https://www.iteye.com/blog/yefzhu-1561933
