@@ -158,7 +158,7 @@ PROVIDE(etext = .); /* Define the 'etext' symbol to this value */
 PROVIDE(edata = .);
 ```
 
-如之前所介绍，这里是定义```edata```符号，并将```.```所代表的地址值赋值给```edata```。
+如之前所介绍，这里是定义```edata```符号，并将```.```所代表的地址值赋值给```edata```。```edata```是```bss```段的开始地址。
 
 ```
 .bss : {
@@ -191,3 +191,40 @@ PROVIDE(end = .);
 > Reference
 
 > https://www.iteye.com/blog/yefzhu-1561933
+
+## Q3 memset(edata, 0, end - edata); 的参数及语句作用
+
+注意Q2中的代码语句：
+```
+PROVIDE(edata = .);
+
+.bss : {
+   *(.bss)
+   *(.bss.*)
+   *(.sbss*)
+}
+
+PROVIDE(end = .);
+```
+
+```edata```数据段是bss段的开始，而```end```数据段是bss段的结束。又考虑bss段的作用是存放初始化为0的可读写数据，因此这句语句的作用就是将bss段的数据内容全部初始化为0。
+
+## Q4 ecall指令的调度流程
+根据lab3，我们可知打印字符是在```/kern/init/init.c```文件中调用```cputs```以实现的：
+
+![image](https://user-images.githubusercontent.com/64548919/157353638-32ee9eb2-2f67-416a-92a6-c54774eafef6.png)
+
+然后考虑顺藤摸瓜，找到```/kern/libs/stdio.c```中对```cputs```的定义，发现它调用了同文件中的```cputch```方法：
+
+![image](https://user-images.githubusercontent.com/64548919/157353824-08945757-fd6e-4cc0-a7ae-4810b55e39bd.png)
+
+![image](https://user-images.githubusercontent.com/64548919/157353873-57c731bb-49c9-43a0-96ef-cdc1cc43e6ad.png)
+
+然后发现```cputch```方法中调用了```cons_putc```方法，这是一个定义在```kern/driver/console.c```的方法：
+
+![image](https://user-images.githubusercontent.com/64548919/157354249-ff983150-6ca9-4364-82fa-7b85b2c84527.png)
+
+这里面调用的```sbi_console_putchar```方法实现在```libs/sbi.c```文件中，通过对其中的方法调用的分析，即可寻找到ecall指令的调用位置，这里面是通过内联汇编实现的调用：
+
+![image](https://user-images.githubusercontent.com/64548919/157354436-79009c1c-cce6-4b42-bd29-927351bc29f9.png)
+
