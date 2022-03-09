@@ -247,7 +247,7 @@ PROVIDE(end = .);
 
 ![image](https://user-images.githubusercontent.com/64548919/157435817-d17772cc-a249-401a-98c8-60b69fc8abd1.png)
 
-- 最后在```/kern/init/init.c``中调用对应的```shutdown```函数即可。
+- 最后在```/kern/init/init.c```中调用对应的```shutdown```函数即可。
 
 ![image](https://user-images.githubusercontent.com/64548919/157436012-753158d9-8dc1-4251-8622-489005b6aca9.png)
 
