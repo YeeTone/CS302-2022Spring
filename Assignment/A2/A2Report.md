@@ -48,6 +48,13 @@
 
 ![image](https://user-images.githubusercontent.com/64548919/156990837-c06bf909-cfe3-4c16-b79a-6be209aa3cd6.png)
 
+在这里```bin/ucore.bin```是编译出的可执行文件 **（ELF）**，它是未压缩的，带调试信息和符号表的。这些参数的意义在于将```bin/ucore.bin```这一架构程序加载至地址```0x80200000```处运行。
+
+> Reference
+
+> 操作系统如何自学？ - 水dong方块的回答 - 知乎
+> https://www.zhihu.com/question/57257819/answer/2308387292
+
 ## Q2 kernel.ld文件中每一行的作用
 
 ```
