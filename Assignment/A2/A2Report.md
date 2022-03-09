@@ -220,11 +220,35 @@ PROVIDE(end = .);
 
 ![image](https://user-images.githubusercontent.com/64548919/157353873-57c731bb-49c9-43a0-96ef-cdc1cc43e6ad.png)
 
-然后发现```cputch```方法中调用了```cons_putc```方法，这是一个定义在```kern/driver/console.c```的方法：
+然后发现```cputch```方法中调用了```cons_putc```方法，这是一个具体实现在```kern/driver/console.c```的方法：
 
 ![image](https://user-images.githubusercontent.com/64548919/157354249-ff983150-6ca9-4364-82fa-7b85b2c84527.png)
 
 这里面调用的```sbi_console_putchar```方法实现在```libs/sbi.c```文件中，通过对其中的方法调用的分析，即可寻找到ecall指令的调用位置，这里面是通过内联汇编实现的调用：
 
 ![image](https://user-images.githubusercontent.com/64548919/157354436-79009c1c-cce6-4b42-bd29-927351bc29f9.png)
+
+## Q5 shutdown关机函数的实现
+首先截图运行结果：
+
+![image](https://user-images.githubusercontent.com/64548919/157434877-a8dc13be-5f5a-4d88-94ff-96b05b7a6b4d.png)
+
+然后列出修改的代码区段：
+
+- ```libs/sbi.h```中增加核心关机函数的函数声明，```libs/sbi.c```中增加核心关机函数的函数具体实现，这里考虑直接调用对应的参数```SBI_SHUTDOWN```和```sbi_call```方法：
+
+![image](https://user-images.githubusercontent.com/64548919/157435132-4c0ca5a0-b35d-4111-af1c-f8b9dea3db0e.png)
+
+![image](https://user-images.githubusercontent.com/64548919/157435185-df7c4867-f853-4413-8fc1-1077ee542b6c.png)
+
+- 在```kern/driver/console.h```中增加中间调用关机函数的函数声明，并在```kern/driver/console.h```中增加对应的具体实现：
+
+![image](https://user-images.githubusercontent.com/64548919/157435775-47606853-4292-428c-8cfb-e1239a15b3b9.png)
+
+![image](https://user-images.githubusercontent.com/64548919/157435817-d17772cc-a249-401a-98c8-60b69fc8abd1.png)
+
+- 最后在```/kern/init/init.c``中调用对应的```shutdown```函数即可。
+
+![image](https://user-images.githubusercontent.com/64548919/157436012-753158d9-8dc1-4251-8622-489005b6aca9.png)
+
 
