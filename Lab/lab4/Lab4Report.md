@@ -57,28 +57,60 @@ int main(int argc, char *argv[]){
 pid_t waitpid(pid_t pid, int *wstatus, int options);
 ```
 
-### Q2-2 参数含义
+### Q2-2 参数含义与具体作用
 在文档说明中找到对应参数：
 
 ![image](https://user-images.githubusercontent.com/64548919/157820483-df5e45e0-0bfb-49bb-ba7e-384563ff6ae2.png)
 
 - 参数pid
   - 表示进程的等待状态
-  - >0：只等待进程id等同于```pid```的子进程
+  - \>0：只等待进程id等同于```pid```的子进程
   - -1：等待所有子进程退出，效果等同于```wait```
   - =0: 等待同一进程组的任何子进程
   - <-1：等待一个指定进程组的所有子进程，其中进程组的id为pid的绝对值。
 
 - 参数wstatus
   - 表示传出的参数，如果设为NULL则表示无需传出该参数
+  - 如果不是NULL，则会将进程的状态返回值放入wstatus指向的整数中。
 
 - 参数options
   - 表示来控制```waitpid```的提供额外选项
-  - WNOHANG：非阻塞的，立即返回，不等待子进程的状态发生变化
+  - WNOHANG：非阻塞的，立即返回，如果没有发现已退出的子进程可收集，则返回0
   - WUNTRACED：
   - WCONTINUED
 
 ## Q3 僵尸进程情况4
+```
+情况4：父进程不执行wait()，父进程比子进程先结束
+```
+
+这种情况即为子进程没有结束，但是父进程先结束，形成了“孤儿进程”。子进程会重新分配一个父进程，这个父进程有可能是init进程，也有可能是已注册的祖父进程。
+
+下列代码可以验证：
+
+```C
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+
+int main(void){
+	int pid = fork();
+	if(pid == 0){
+		sleep(10);
+		printf("This is a child. Child pid = %d, ppid = %d\n", getpid(), getppid());
+	}else {
+		printf("This is a parent. Child = %d, pid = %d, ppid = %d\n",pid , getpid(), getppid());
+		printf("After child ends.\n");
+	}
+	printf("Which process?\n");
+	
+	return 0;
+}
+```
+这里由进程号为1510的命令行启动进程号为21105的父进程，然后父进程再生成进程号为21106的子进程。可以看到父子进程均未wait，且父进程优先于子进程结束。从以下的运行结果来看，子进程的ppid就被分配为命令行进程的pid————1510。
+
+![image](https://user-images.githubusercontent.com/64548919/157827027-e8036234-d6df-4b44-b02b-b5839fb21db4.png)
+
 
 ## Q4 僵尸进程代码实现与状态截图
 
