@@ -114,6 +114,52 @@ int main(void){
 
 ## Q4 僵尸进程代码实现与状态截图
 
+考虑以下C语言代码的僵尸进程实现：
+```C
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+int main(){
+
+	pid_t pid = fork();
+	
+	if(pid == 0){
+		printf("Child! pid = %d\n", getpid());
+		
+		sleep(5);
+		
+		printf("Child has dead!\n");
+	}else {
+		printf("Parent! pid = %d\n", getpid());
+		
+		sleep(25);
+		
+		printf("Parent has dead!\n");
+	}
+	
+	return 0;
+}
+```
+（代码参考：https://blog.csdn.net/lvxin15353715790/article/details/89852259 ）
+
+这段代码首先fork以创建子进程，然后子进程只休眠5秒，而父进程休眠25秒，因此子进程先结束，产生了僵尸进程的状态。
+
+- 截图1：运行前
+![image](https://user-images.githubusercontent.com/64548919/157828988-e128c3f4-a009-4d5a-a511-2eec4d214ff3.png)
+
+- 截图2：父子进程同时运行
+
+![image](https://user-images.githubusercontent.com/64548919/157829051-6db74614-d20b-4498-b3c8-2248e4171f4a.png)
+
+- 截图3：子进程已成僵尸态，父进程仍然运行
+
+![image](https://user-images.githubusercontent.com/64548919/157829553-fd51fff9-e6bf-4d7f-b412-9cb6977774e9.png)
+
+- 截图4：父子进程都退出
+
+![image](https://user-images.githubusercontent.com/64548919/157829637-13cb33a0-dab5-4534-9a1d-d6629ff208fc.png)
+
 ## Q5 子进程exec实现"ps -al"
 
 ## Q6 pipe中父子进程的功能
