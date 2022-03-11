@@ -76,8 +76,6 @@ pid_t waitpid(pid_t pid, int *wstatus, int options);
 - 参数options
   - 表示来控制```waitpid```的提供额外选项
   - WNOHANG：非阻塞的，立即返回，如果没有发现已退出的子进程可收集，则返回0
-  - WUNTRACED：
-  - WCONTINUED
 
 ## Q3 僵尸进程情况4
 ```
@@ -151,3 +149,18 @@ int main(void){
 可以看到父进程产生了子进程，并且运行了"ps -al"，父进程再等待子进程结束后才运行输出```Parent has dead!```。
 
 ## Q6 pipe中父子进程的功能
+
+1. 父进程创建管道```int pipe(int pipe_fd[2])``` ，其中```pipefd[2]```为两个文件描述符，```fd[0]```对应读，```fd[1]```对应写。
+
+2. 父进程创建子进程，父子进程共享文件描述符（即同一管道）
+
+3. 这段代码的运行流程是：
+- 首先尝试fork创建子进程
+- 根据创建的进程和接受的信号执行相应的方法：
+   - SIGALRM: 子进程接收到就执行write\_data，父进程接收到就执行read\_data；
+   - SIGINT：子进程接受到就执行finish\_write，父进程接收到就执行finish\_read；
+- 父子进程通讯：
+   - 子进程在write\_data中向父进程发送SIGALRM信号
+   - 父进程在read\_data中向子进程发送SIGALRM信号
+   - 子进程自己会通知自己SIGALRM信号
+- Ctrl + C则会结束代码的运行流程
