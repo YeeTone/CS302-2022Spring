@@ -19,6 +19,16 @@
   - 中断处理：寄存器`cause CSR`（CSR: Control and Status Register）写入一个指示导致trap产生的原因的数值。中断处理工作有中断处理和异常处理两种，会根据中断或者异常的不同类型完成处理。
   - 恢复上下文：恢复顺序与保存顺序相反，先加载两个CSR，再加载通用寄存器。
 
-
-
 ## Q2 非法指令异常实现
+按照如下步骤做依次操作：
+- 修改`kern/init.c`中的汇编代码为`mret`：
+
+![image](https://user-images.githubusercontent.com/64548919/158955793-085b8918-6d81-43f5-83a8-2d085715cd09.png)
+
+- 修改`kern/trap/trap.c`中对于`AUSE_ILLEGAL_INSTRUCTION`的处理分支，输出相关信息：
+
+![image](https://user-images.githubusercontent.com/64548919/158955977-0bce6d59-9887-4fc7-9295-d8ffb6c6d1e0.png)
+
+- 重新`make qemu`即可输出相关的提示信息，其内包括异常类型与指令的地址：
+
+![image](https://user-images.githubusercontent.com/64548919/158956271-664dd6c3-6571-4d7e-9100-0f24e1842c7d.png)
