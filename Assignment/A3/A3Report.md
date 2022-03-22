@@ -128,3 +128,23 @@
 - 异常：杀死当前进程，或者是重新执行产生意料之外结果的指令
 - 中断：持续，等待中断处理
 
+## Q5 Process Life Cycle
+
+进程生命周期首先参考slide上这张图：
+
+![image](https://user-images.githubusercontent.com/64548919/159478598-4c057e8b-f2a1-4e54-bb23-c9e3b1066787.png)
+
+- new: 分配了PCB，但并无进程所需资源，创建工作不完整，进程不能调度运行
+- ready: 进程已分配到除CPU以外的所有资源，处于CPU的等待态
+- running: 进程获得CPU，正在执行
+- waiting: 进程由于一些事件，不能继续执行，会释放CPU占用并进入阻塞状态
+- terminated: 进程自然结束，或者异常终止。进程不再能够执行，但是仍然在系统进程表中有对应的记录，供其他进程收集。
+
+Reason Description
+
+- new -> ready：进程正在被创建，OS正在为其分配所需要的资源
+- ready -> running：进程通过CPU调度器获得了CPU的相关资源
+- running -> ready: 进程被调度，有可能是被回收了CPU资源，也有可能是系统中断
+- running -> waiting：系统调用，一般是主动请求等待事件发生，或者说申请系统资源
+- waiting -> ready：系统资源申请成功，或者等待请求的事件发生了
+- running -> terminated：进程自然结束，或者出现了不可预料的异常使得异常终止
