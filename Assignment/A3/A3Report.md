@@ -28,5 +28,12 @@
 
 ![image](https://user-images.githubusercontent.com/64548919/159444161-e3e79be0-046f-411e-8dd1-8369a82f8c51.png)
 
+并发度是指在操作系统同时处理多个进程的运行，但是对于任一时刻，只能有一个进程在执行，多个进程之间会相互切换着运行。
 
-- Persistence（持久性）
+- Persistence（持久度）
+
+书中对于持久度的说明如下：
+
+![image](https://user-images.githubusercontent.com/64548919/159445208-311653da-60f7-474b-83b7-eec4781b9546.png)
+
+持久度就是说操作系统的硬件和软件对于数据持久保存的能力，具体的实现有文件系统等等。
