@@ -45,3 +45,16 @@
 - Persistence: Chapter 12-15
 
 ## Q2 Context Switch
+
+先参考书中第9页对上下文切换的说明：
+
+![image](https://user-images.githubusercontent.com/64548919/159465809-afea0f51-a7f1-4ae1-a07a-403daff9ad4a.png)
+
+因此上下文切换主要有以下几个步骤：
+
+- 将前一个任务的CPU上下文（CPU寄存器和程序计数器）保存
+- 加载新任务的上下文的CPU寄存器和程序计数器
+- 跳转程序计数器所指向的新位置
+- 运行新的任务、
+
+## Q3 `fork()` and `exit()`
