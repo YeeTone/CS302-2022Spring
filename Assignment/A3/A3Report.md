@@ -1,4 +1,4 @@
-# Assignment2 Report
+# Assignment3 Report
 姓名：Yitong WANG(王奕童) 11910104@mail.sustech.edu.cn
 
 学号：11910104
@@ -23,6 +23,10 @@
 虚拟化是指操作系统将硬件设备的物理资源进行一层抽象与转换，转换成一个更加普适，易用和强大的虚拟形式，从而实现底层硬件与上层应用的隔离，将对操作系统资源的访问提供统一抽象化的接口。
 
 - Concurrency（并发度）
-‘’、】】、】、
+
+参考书中第7页对于并发度的说明：
+
+![image](https://user-images.githubusercontent.com/64548919/159444161-e3e79be0-046f-411e-8dd1-8369a82f8c51.png)
+
 
 - Persistence（持久性）
