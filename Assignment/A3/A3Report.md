@@ -13,7 +13,7 @@
 
 ## Q1 `Three Easy Pieces`
 
-### Three Easy Pieces:
+### Q1-1 Three Easy Pieces Explanation:
 - Virtualizing（虚拟化）
 
 参考书中第2页对于虚拟化的定义：
@@ -37,3 +37,9 @@
 ![image](https://user-images.githubusercontent.com/64548919/159445208-311653da-60f7-474b-83b7-eec4781b9546.png)
 
 持久度就是说操作系统的硬件和软件对于数据持久保存的能力，具体的实现有文件系统等等。
+
+### Q1-2 Three Easy Pieces Mapping
+
+- Virtualizing: Chapter 3-5
+- Concurrency: Chapter 6-8
+- Persistence: Chapter 12-15
