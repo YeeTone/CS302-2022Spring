@@ -1,4 +1,4 @@
- Assignment2 Report
+# Assignment2 Report
 姓名：Yitong WANG(王奕童) 11910104@mail.sustech.edu.cn
 
 学号：11910104
