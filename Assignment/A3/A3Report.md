@@ -148,3 +148,31 @@ Reason Description
 - running -> waiting：系统调用，一般是主动请求等待事件发生，或者说申请系统资源
 - waiting -> ready：系统资源申请成功，或者等待请求的事件发生了
 - running -> terminated：进程自然结束，或者出现了不可预料的异常使得异常终止
+
+## Q6 `myshell` implementation
+
+- Code Screenshots:
+
+![image](https://user-images.githubusercontent.com/64548919/159610051-fc8b155a-2331-4f36-b941-25cdc1129f38.png)
+
+![image](https://user-images.githubusercontent.com/64548919/159610153-9c5d0a8a-e1ec-4db0-b8ee-4922210e3661.png)
+
+![image](https://user-images.githubusercontent.com/64548919/159610238-4211a767-bade-4b50-bfb3-403a9bb9f408.png)
+
+![image](https://user-images.githubusercontent.com/64548919/159610397-70722fba-8f2b-47ab-a5d1-8836b11a98c8.png)
+
+![image](https://user-images.githubusercontent.com/64548919/159610458-3b21549d-231d-4de5-8950-4a7600caae69.png)
+
+![image](https://user-images.githubusercontent.com/64548919/159610494-e8a18dbe-fd1f-4d48-90cb-49032670cc12.png)
+
+![image](https://user-images.githubusercontent.com/64548919/159610530-1df72653-1a0a-44c3-9f3a-0495a3ad9346.png)
+
+- Function Screenshots:
+
+
+
+
+
+
+
+
