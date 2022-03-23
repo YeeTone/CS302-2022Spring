@@ -151,7 +151,7 @@ Reason Description
 
 ## Q6 `myshell` implementation
 
-- Code Screenshots:
+### Code Screenshots:
 
 ![image](https://user-images.githubusercontent.com/64548919/159610051-fc8b155a-2331-4f36-b941-25cdc1129f38.png)
 
@@ -167,9 +167,46 @@ Reason Description
 
 ![image](https://user-images.githubusercontent.com/64548919/159610530-1df72653-1a0a-44c3-9f3a-0495a3ad9346.png)
 
-- Function Screenshots:
+### Function Screenshots:
 
+#### Basic Functions:
+- `ps`
 
+![image](https://user-images.githubusercontent.com/64548919/159737780-615a3c8f-55c4-47f8-a92d-66601b6fccc3.png)
+
+- `ls`
+
+![image](https://user-images.githubusercontent.com/64548919/159738084-2409a81c-2825-4fa3-b839-d9a703fd2cdc.png)
+
+- `pwd`
+
+![image](https://user-images.githubusercontent.com/64548919/159738405-7b5c01a2-254c-4609-b709-e779e274c30d.png)
+
+- `cd`
+
+![image](https://user-images.githubusercontent.com/64548919/159738605-cdf6a124-a588-4426-8ee3-b1318718c928.png)
+
+- `exit`
+
+![image](https://user-images.githubusercontent.com/64548919/159738719-078e8f62-682b-4935-b825-417cda615151.png)
+
+#### Bonus Functions:
+
+- 检查输入的指令是否合法:
+
+![image](https://user-images.githubusercontent.com/64548919/159740008-b7e6b287-03f9-4f68-a599-b2285db87c8e.png)
+
+- `touch` 创建文件：
+
+![image](https://user-images.githubusercontent.com/64548919/159740253-028eb981-3962-4028-add6-c91a68644891.png)
+
+- `mkdir` 创建文件夹：
+
+![image](https://user-images.githubusercontent.com/64548919/159740402-52cfd4b7-d924-439b-8674-060395326048.png)
+
+- `rm` 删除文件/文件夹：
+
+![image](https://user-images.githubusercontent.com/64548919/159740542-68e3fcac-23c3-48dc-b13a-1e472b836a3c.png)
 
 
 
