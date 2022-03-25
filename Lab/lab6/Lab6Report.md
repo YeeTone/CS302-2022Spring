@@ -51,3 +51,37 @@ to_struct((le), struct Page, page_link)
 
 
 ## Q2 `default_alloc_pages`和`default_free_pages`的功能与实现方式
+### 功能
+- `default_alloc_pages`：分配物理内存页，接受一个正整数n，为其分配n个物理大小页面的连续物理内存空间，并返回指向最前面的最低位物理内存页的Page指针
+- `default_free_pages`：释放物理内存页，接受一个Page的基址base和正整数n，释放掉自base起始的连续n个物理内存页
+
+### 实现方式
+以下将参照代码进行实现方式的说明：
+#### `default_alloc_pages`
+
+![image](https://user-images.githubusercontent.com/64548919/160071714-b6bdd610-bf3d-4b44-b76b-71c09c18f3a2.png)
+
+检查参数合法性，参数n必须是正数。m不能比剩余的空闲空间nr_free大，否则分配失败。
+
+![image](https://user-images.githubusercontent.com/64548919/160071994-3bc5eea3-4e68-4d12-9dc9-52b798591b8d.png)
+
+遍历空闲链表，寻求第一个空闲位置大小大于等于n的空闲块（原理类似于first-fit）。
+
+![image](https://user-images.githubusercontent.com/64548919/160072234-e1bb1022-2f17-48f0-8619-c2f3f76fa8fc.png)
+
+如果不是NULL，那么就说明找到了；找到了以后就进行物理内存页的分配即可。
+最后返回相应分配好的物理内存的指针，以Page\*的方式返回。
+
+#### `default_free_pages`
+
+![image](https://user-images.githubusercontent.com/64548919/160072563-2396315d-b349-42ab-8309-728064604ddd.png)
+
+检查参数合法性：传入的n必须是正数
+
+![image](https://user-images.githubusercontent.com/64548919/160073208-4db10fe6-a029-46c9-b1ff-4bc696baee10.png)
+
+遍历这n个连续的内存页，将相关的内存属性设置为空闲。
+
+![image](https://user-images.githubusercontent.com/64548919/160074937-72087869-e545-4d02-94a0-c9e896935ea4.png)
+
+这里是需要维持空闲块的链表按照空闲块的地址有序排列。需要寻求到第一个比base大的page，然后插在它前面。
