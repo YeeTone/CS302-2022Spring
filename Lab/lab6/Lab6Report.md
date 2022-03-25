@@ -55,6 +55,8 @@ to_struct((le), struct Page, page_link)
 - `default_alloc_pages`：分配物理内存页，接受一个正整数n，为其分配n个物理大小页面的连续物理内存空间，并返回指向最前面的最低位物理内存页的Page指针
 - `default_free_pages`：释放物理内存页，接受一个Page的基址base和正整数n，释放掉自base起始的连续n个物理内存页。并按照空闲块的地址做有序的空闲链表排列。
 
+参考链接：https://www.bbsmax.com/A/E35pW22gJv/
+
 ### 实现方式
 以下将参照代码进行实现方式的说明：
 #### `default_alloc_pages`
