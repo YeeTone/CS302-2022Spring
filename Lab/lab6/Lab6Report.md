@@ -84,4 +84,4 @@ to_struct((le), struct Page, page_link)
 
 ![image](https://user-images.githubusercontent.com/64548919/160074937-72087869-e545-4d02-94a0-c9e896935ea4.png)
 
-这里是需要维持空闲块的链表按照空闲块的地址有序排列。需要寻求到第一个比base大的page，然后插在它前面。
+这里是需要维持空闲块的链表按照空闲块的地址有序排列。需要寻求到第一个比base大的page，然后插在它前面。这样的有序排列的形成可以有效降低合并空闲块的时间开销。
