@@ -38,7 +38,7 @@
 
 ![image](https://user-images.githubusercontent.com/64548919/161073725-6f4f181f-bd45-44c9-a1b7-6ccf73ca5ea2.png)
 
-可见在segmentation中，chunks的大小是可变的。
+可见在segmentation中，chunks的大小是可变的，因此也容易造成内存碎片。
 
 #### Paging
 
@@ -48,6 +48,50 @@
 
 可见在paging中，chunks的大小的恒定的。
 
+### Free space management
+
+#### Segmentation
+
+以下部分来自chapter 16第十页：
+
+![image](https://user-images.githubusercontent.com/64548919/161075110-997810ae-b2f5-4678-a5ff-a4c8b0c42aba.png)
+
+可见segmentation使用的management algorithm是free-list management algorithm，有很多经典的算法实现，如best-fit、worst-fit、first-fit等等。
+
+#### Paging
+
+以下部分来自chapter 18第六页：
+
+![image](https://user-images.githubusercontent.com/64548919/161076037-76fb5c1d-59ac-410b-985c-7d05ff6e618e.png)
+
+课件paging是使用page table做管理，用于记录进程逻辑页面与内存物理页面之间的对应关系。Page table有可能可以有多个等级。
+
+### Context switch
+
+#### Segmentation
+
+以下部分来自chapter 16第八页：
+
+![image](https://user-images.githubusercontent.com/64548919/161077672-0ec6fa9a-1831-49cd-ab6d-5d8403ceb132.png)
+
+OS在上下文切换的时候需要操作：
+- 保存segment寄存器中的值
+- 设置virtual address space中的值
+- 启动相关即将切换到的进程
+
+#### Paging
+
+### Fragmentation
+
+#### Segmentation
+
+#### Paging
+
+### status bits and protection bits
+
+#### Segmentation
+
+#### Paging
 
 ## Q3.
 
