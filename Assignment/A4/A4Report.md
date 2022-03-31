@@ -64,7 +64,7 @@
 
 ![image](https://user-images.githubusercontent.com/64548919/161076037-76fb5c1d-59ac-410b-985c-7d05ff6e618e.png)
 
-课件paging是使用page table做管理，用于记录进程逻辑页面与内存物理页面之间的对应关系。Page table有可能可以有多个等级。
+课件paging是使用page table做管理，用于记录进程逻辑页面与内存物理页面之间的对应关系。Page table有可能可以有多个等级。（因此带来了一个问题，就是page table的存储会消耗巨大空间）
 
 ### Context switch
 
@@ -81,11 +81,36 @@ OS在上下文切换的时候需要操作：
 
 #### Paging
 
+关于Paging与Context switch，在chapter 18中暂未找到对应说明。
+
+但张殷乾老师的ppt中有相关内容：
+
+![image](https://user-images.githubusercontent.com/64548919/161083741-98e4468a-7955-4f08-884a-ba7600f86f04.png)
+
+![image](https://user-images.githubusercontent.com/64548919/161084073-056fcc2e-3834-480b-a430-f8e6582ee63f.png)
+
+
+可见在context switch中，代价是比较低。需要修改对page table的指针，也需要修改TLB对应内容，处理方式有两种：
+- 完全刷新TLB，缺陷是开销巨大
+- 增加硬件支持，添加对于进程ID的映射，以缓存不同进程空间的地址映射
+
 ### Fragmentation
 
 #### Segmentation
 
+以下内容可见于chapter 16第九页：
+
+![image](https://user-images.githubusercontent.com/64548919/161085452-29dc0e52-5c44-49a1-b3ca-4d53810bd377.png)
+
+由于segmentation的空间分配中，块的大小可变，因此不会造成内存碎片，而容易造成外存碎片（后续虽然有空余空间，但没有一片足够连续的空间可供分配）。
+
 #### Paging
+
+以下内容可见于chapter 18第十二页：
+
+![image](https://user-images.githubusercontent.com/64548919/161086273-5ab8441c-b9ed-4176-945f-7bfc20f8e127.png)
+
+由于分配的块内存的大小恒定，因此paging不会造成外存碎片，但会造成内存碎片（内存分配了，但是没有被使用）
 
 ### status bits and protection bits
 
