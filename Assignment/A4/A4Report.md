@@ -133,13 +133,17 @@ Page Size: 2^12 = 4096, 4Kb
 考虑到这是一级页表，那么就至多会有2^20个页表项。每个页表项占用空间4 bytes，因此至多占用2^20 * 4 = 2^22 bytes = 4MB
 
 ### Q4-2
-（1）Offset: 0x302 = 770
+（1）0xC302C302 = 1100001100 0000101100 001100000010
 
-Page number: 0xC302C = 798764
+Offset: 0x302 = 770
 
-（2）Offset: 0x6AB = 1707
+Page number: 1100001100 = 780
 
-Page number: 不能得知，因为第一级页表在0xEC666（十进制968294）的内容是未知的。
+（2）0xEC6666AB = 1110110001 1001100110 011010101011
+
+Offset: 0x6AB = 1707
+
+Page number: 1001100110 = 614
 
 ## Q5. Merging free blocks
 
@@ -152,3 +156,4 @@ Checking results:
 ![image](https://user-images.githubusercontent.com/64548919/161118348-34096206-dcd3-4cc2-a718-f2f6ea45302a.png)
 
 
+## Q6. Bestfit Implementation
