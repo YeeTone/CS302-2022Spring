@@ -1,32 +1,32 @@
 # Assignment4 Report
-姓名：Yitong WANG(王奕童) 11910104@mail.sustech.edu.cn
+Name：Yitong WANG(王奕童) 11910104@mail.sustech.edu.cn
 
-学号：11910104
+SID：11910104
 
-实验课时段：周五5-6节
+Lab：Friday5-6节
 
-实验课教师：Yun SHEN(沈昀) sheny@mail.sustech.edu.cn
+Lab Teacher：Yun SHEN(沈昀) sheny@mail.sustech.edu.cn
 
-实验课SA:
+Lab SA:
 - Yining TANG(汤怡宁) 11811237@mail.sustech.edu.cn
 - Yushan WANG(王宇杉) 11813002@mail.sustech.edu.cn
 
 ## Q1. CPU hardware and OS cooperation
-- Hardware提供CPU的两种状态及其切换：内核态和用户态。OS处于内核态，而用户应用程序处于用户态。
+- Hardware provides two CPU modes and their switching：kernel mode and user mode. OS is in kernel mode, and user application is in the user mode.
 
-下图来自chapter 15第八页：
+The following figure is from page 8 of Chapter 15:
 
 ![image](https://user-images.githubusercontent.com/64548919/161127878-310f2244-dccc-43e5-b522-a094a640ba40.png)
 
-- Hardware提供base和bounds寄存器，以及相关的内存管理机制，以允许OS做上下文切换。
+- Hardware provides base and bounds registers and related memory management mechanisms to allow OS to do context switching.
 
-下图来自chapter 15第八页：
+The following figure is from page 8 of Chapter 15:
 
 ![image](https://user-images.githubusercontent.com/64548919/161128038-c5a27665-5071-4cb1-a73e-ceecf40df44a.png)
 
-- Hardware产生异常，以交给OS做相关处理。
+- Hardware generates exceptions and gives them to the OS for related processing.
 
-下图来自chapter 15第九页：
+The following figure is from page 9 of Chapter 15:
 
 ![image](https://user-images.githubusercontent.com/64548919/161128504-9657132e-b376-44b3-b585-bd85d4d1744e.png)
 
@@ -37,112 +37,114 @@
 
 #### Segmentation
 
-以下部分来自chapter 16第十页：
+The following figure is from page 10 of Chapter 16:
 
 ![image](https://user-images.githubusercontent.com/64548919/161073725-6f4f181f-bd45-44c9-a1b7-6ccf73ca5ea2.png)
 
-可见在segmentation中，chunks的大小是可变的，因此也容易造成内存碎片。
+It can be seen that in segmentation, the size of chunks is variable. Thus it is also easy to cause internal fragmentation.
 
 #### Paging
 
-以下部分来自chapter 18第一页：
+The following figure is from page 1 of Chapter 18:
 
 ![image](https://user-images.githubusercontent.com/64548919/161073960-4ce769ef-aee7-45e9-835f-f39d7fe7d1d3.png)
 
-可见在paging中，chunks的大小的恒定的。
+It can be seen that in paging, the size of chunks is fixed.
 
 ### Free space management
 
 #### Segmentation
 
-以下部分来自chapter 16第十页：
+The following figure is from page 10 of Chapter 16:
 
 ![image](https://user-images.githubusercontent.com/64548919/161075110-997810ae-b2f5-4678-a5ff-a4c8b0c42aba.png)
 
-可见segmentation使用的management algorithm是free-list management algorithm，有很多经典的算法实现，如best-fit、worst-fit、first-fit等等。
+It can be seen that the management algorithm used in segmentation is free-list management algorithm, which is implemented by many classical algorithms, such as best-fit, worst-fit, first-fit and so on.
 
 #### Paging
 
-以下部分来自chapter 18第六页：
+The following figure is from page 6 of Chapter 18:
 
 ![image](https://user-images.githubusercontent.com/64548919/161076037-76fb5c1d-59ac-410b-985c-7d05ff6e618e.png)
 
-课件paging是使用page table做管理，用于记录进程逻辑页面与内存物理页面之间的对应关系。Page table有可能可以有多个等级。（因此带来了一个问题，就是page table的存储会消耗巨大空间）
+It can be seen that paging is managed by page tables, which are used to record the corresponding relationship between process logical pages and memory physical pages. Page table may have multiple levels. (This brings a problem, that is, the storage of page table will consume huge space)
 
 ### Context switch
 
 #### Segmentation
 
-以下部分来自chapter 16第八页：
+The following figure is from page 8 of Chapter 16:
 
 ![image](https://user-images.githubusercontent.com/64548919/161077672-0ec6fa9a-1831-49cd-ab6d-5d8403ceb132.png)
 
-OS在上下文切换的时候需要操作：
-- 保存segment寄存器中的值
-- 设置virtual address space中的值
-- 启动相关即将切换到的进程
+OS needs to do:
+- save segment registers' value
+- set values in virtual address space
+- start the process to be switched
 
 #### Paging
+For paging and context switch, no corresponding description is found in Chapter 18.
 
-关于Paging与Context switch，在chapter 18中暂未找到对应说明。
-
-但张殷乾老师的ppt中有相关内容：
+But there are some relevant content in the slides of Prof.Yinqian ZHANG:
 
 ![image](https://user-images.githubusercontent.com/64548919/161083741-98e4468a-7955-4f08-884a-ba7600f86f04.png)
 
 ![image](https://user-images.githubusercontent.com/64548919/161084073-056fcc2e-3834-480b-a430-f8e6582ee63f.png)
 
+It can be seen that in context switch, the cost is relatively low. 
+It need to modify the pointer to page table and the corresponding content of TLB. 
+There are two processing methods:
 
-可见在context switch中，代价是比较低。需要修改对page table的指针，也需要修改TLB对应内容，处理方式有两种：
-- 完全刷新TLB，缺陷是开销巨大
-- 增加硬件支持，添加对于进程ID的映射，以缓存不同进程空间的地址映射
+- Completely refreshing TLB. The defect is the huge overhead.
+
+- Add the address of the process in different cache space to support the mapping of different hardware processes.
 
 ### Fragmentation
 
 #### Segmentation
 
-以下内容可见于chapter 16第九页：
+The following figure is from page 9 of Chapter 16:
 
 ![image](https://user-images.githubusercontent.com/64548919/161085452-29dc0e52-5c44-49a1-b3ca-4d53810bd377.png)
 
-由于segmentation的空间分配中，块的大小可变，因此不会造成内存碎片，而容易造成外存碎片（后续虽然有空余空间，但没有一片足够连续的空间可供分配）。
+In the space allocation of segmentation, the size of the block is variable, so it will not cause memory fragmentation, but easy to cause external memory fragmentation. (Although there is free space in the future, there is not enough continuous space for allocation)
 
 #### Paging
 
-以下内容可见于chapter 18第十二页：
+The following figure is from page 12 of Chapter 18:
 
 ![image](https://user-images.githubusercontent.com/64548919/161086273-5ab8441c-b9ed-4176-945f-7bfc20f8e127.png)
 
-由于分配的块内存的大小恒定，因此paging不会造成外存碎片，但会造成内存碎片（内存分配了，但是没有被使用）。
+Since the size of allocated block memory is constant, paging will not cause external memory fragmentation, but will cause internal fragmentation (memory is allocated but not used).
 
 ## Q3. Page Table Design
-这里考虑使用三级页表，将剩下的33bits均分为三个11bits，总体结构如下所示：
+Consider using 3-level page tables and dividing 33 bits into 3\*11 bits, as the following figure shows:
 
 ![image](https://user-images.githubusercontent.com/64548919/161102845-da548c4e-6436-4d80-bb57-8f9d45977223.png)
 
-这里设计的原因如下：
+Reason for the design:
 
-由于page size是8kb（2^13 bytes），因此offset的长度是13bits，剩余46 - 13 = 33bits。
+page size = 8kb(2^13 bytes) -> offset.length = 13 bits -> rest.length = 46 - 13 = 33bits。
 
-每个page table entry的大小是4 bytes，那么一个page就可以容纳2^11个entry，需要11个二进制数字做对应。
+The size of each page table entry is 4 bytes, so a page can accommodate 2^11 entries, which requires 11 binary digits.
 
-因此正好可以将33等分为3个11bits的entry，变为三级页表。
+Therefore, 33 can be equally divided into three 11 bits entries to become a 3-level page table.
 
 ## Q4. Page Calculation
 
 ### Q4-1
 Page Size: 2^12 = 4096, 4Kb
 
-考虑到这是一级页表，那么就至多会有2^20个页表项。每个页表项占用空间4 bytes，因此至多占用2^20 * 4 = 2^22 bytes = 4MB
+Considering that this is a level 1 page table, there will be at most 2 ^ 20 page table entries. Each page table item occupies 4 bytes of space, so at most 2 ^ 20 * 4 = 2 ^ 22 bytes = 4MB
 
 ### Q4-2
-（1）0xC302C302 = 1100001100 0000101100 001100000010
+(1)0xC302C302 = 1100001100 0000101100 001100000010
 
 Offset: 0x302 = 770
 
 Page number: 1100001100 = 780
 
-（2）0xEC6666AB = 1110110001 1001100110 011010101011
+(2)0xEC6666AB = 1110110001 1001100110 011010101011
 
 Offset: 0x6AB = 1707
 
