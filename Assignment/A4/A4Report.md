@@ -159,6 +159,9 @@ Checking results:
 
 Codes in the `best_fit_pmm.c`:
 
+![image](https://user-images.githubusercontent.com/64548919/161126313-1fd45d00-d4ae-4e00-a6b1-54c41a289a4f.png)
+
+
 Checking results:
 
 ![image](https://user-images.githubusercontent.com/64548919/161125586-b10f95ea-f3ab-486b-95e7-eb8b0c0bd85d.png)
