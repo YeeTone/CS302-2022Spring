@@ -141,4 +141,14 @@ Page number: 0xC302C = 798764
 
 Page number: 不能得知，因为第一级页表在0xEC666（十进制968294）的内容是未知的。
 
-## Q5.
+## Q5. Merging free blocks
+
+Codes in the `static void default_free_pages(struct Page *base, size_t n)`:
+
+![image](https://user-images.githubusercontent.com/64548919/161117988-0cc9d59e-932e-400e-a264-31b25c47714d.png)
+
+Checking results:
+
+![image](https://user-images.githubusercontent.com/64548919/161118348-34096206-dcd3-4cc2-a718-f2f6ea45302a.png)
+
+
