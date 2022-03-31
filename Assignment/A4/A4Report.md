@@ -12,21 +12,24 @@
 - Yushan WANG(王宇杉) 11813002@mail.sustech.edu.cn
 
 ## Q1. CPU hardware and OS cooperation
+- Hardware提供CPU的两种状态及其切换：内核态和用户态。OS处于内核态，而用户应用程序处于用户态。
 
-首先分析出CPU hardware和OS的相关职能：
-- CPU hardware: 
-  - 动态地址分配
-  - 虚拟地址和物理地址的翻译
-  - 内存的管理
-  - 为OS提供特殊指令，改变base和bounds寄存器
-  - 提供CPU modes
-  - 产生exception
+下图来自chapter 15第八页：
 
-- OS:
-  - 进程创建时，找到其地址空间对应的内存区域
-  - 进程结束时，释放内存并重新调配给其他的进程，或者给OS本身
-  - 上下文切换时，修改base和bounds寄存器，并且能够现场恢复
-  - 处理CPU hardware产生的exception
+![image](https://user-images.githubusercontent.com/64548919/161127878-310f2244-dccc-43e5-b522-a094a640ba40.png)
+
+- Hardware提供base和bounds寄存器，以及相关的内存管理机制，以允许OS做上下文切换。
+
+下图来自chapter 15第八页：
+
+![image](https://user-images.githubusercontent.com/64548919/161128038-c5a27665-5071-4cb1-a73e-ceecf40df44a.png)
+
+- Hardware产生异常，以交给OS做相关处理。
+
+下图来自chapter 15第九页：
+
+![image](https://user-images.githubusercontent.com/64548919/161128504-9657132e-b376-44b3-b585-bd85d4d1744e.png)
+
 
 ## Q2. Comparing segmentation and paging
 
