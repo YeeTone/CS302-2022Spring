@@ -112,8 +112,19 @@ OS在上下文切换的时候需要操作：
 
 由于分配的块内存的大小恒定，因此paging不会造成外存碎片，但会造成内存碎片（内存分配了，但是没有被使用）
 
-## Q3.
+## Q3. Page Table Design
+这里考虑使用三级页表，将剩下的33bits均分为三个11bits，总体结构如下所示：
 
-## Q4.
+![image](https://user-images.githubusercontent.com/64548919/161102845-da548c4e-6436-4d80-bb57-8f9d45977223.png)
+
+这里设计的原因如下：
+
+由于page size是8kb(2^13 bytes)，因此offset的长度是13bits，剩余46-13=33bits。
+
+每个page table entry的大小是4 bytes，那么一个page就可以容纳2^11个entry，需要11个二进制数字做对应。
+
+因此正好可以将33等分为3个11bits的entry，变为三级页表。
+
+## Q4. Page Calculation
 
 ## Q5.
