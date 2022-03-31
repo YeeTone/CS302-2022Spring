@@ -112,12 +112,6 @@ OS在上下文切换的时候需要操作：
 
 由于分配的块内存的大小恒定，因此paging不会造成外存碎片，但会造成内存碎片（内存分配了，但是没有被使用）
 
-### status bits and protection bits
-
-#### Segmentation
-
-#### Paging
-
 ## Q3.
 
 ## Q4.
