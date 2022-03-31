@@ -155,5 +155,10 @@ Checking results:
 
 ![image](https://user-images.githubusercontent.com/64548919/161118348-34096206-dcd3-4cc2-a718-f2f6ea45302a.png)
 
-
 ## Q6. Bestfit Implementation
+
+Codes in the `best_fit_pmm.c`:
+
+Checking results:
+
+![image](https://user-images.githubusercontent.com/64548919/161125586-b10f95ea-f3ab-486b-95e7-eb8b0c0bd85d.png)
