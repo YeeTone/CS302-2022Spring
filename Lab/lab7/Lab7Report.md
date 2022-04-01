@@ -25,8 +25,26 @@
 
 ## Q2. Huge pages
 
-如Q1所示，整体的偏移量表征为\[20:0\]，所以巨页的大小为2^21 Bytes，即为2GB。
+如Q1所示，整体的偏移量表征为\[20:0\]，所以巨页的大小为2^21 Bytes，即为2MB。
 
 ## Q3. Page table calculation
+
+4MB = 2^2 * 2^20 bytes = 2^22 bytes
+
+Page size = 4KB = 2^12 bytes
+
+因此需要 2^22 / 2^12 = 2^10 pages，需要一共有2^10个pages reference。
+
+考虑二级页表的结构是10 | 10 | 12，因此需要访问二级页表中的2^10 / 2^10 = 1个块（Chunk，Page）。
+
+一共三次访问，二级页表需要有三个相应的块指向，保存在三个二级页表中。
+
+对于这三个块所在的二级页表，需要一个一级页表保存对其的指向。
+
+因此一共需要1个一级页表和3个二级页表。
+
+总共空间需要的空间：1 \* 2^10 * PTE_size + 3 \* 2^10 * PTE_size = 2^12  * PTE_size = 4KB * PTE_size
+
+
 
 ## Q4. `static inline void *page2kva(struct Page *page)`
