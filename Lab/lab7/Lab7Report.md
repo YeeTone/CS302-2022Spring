@@ -22,3 +22,11 @@
 2. 该PTE1包含二级页表的基址，VA\[29:21\]给出了二级页号，处理器读取地址为(PTE1.PPN * 4096 + VA\[29:21\] * 4)的页表项PTE2
 3. 该PTE2包含二级页表的基址，VA\[20:12\]给出了二级页号，处理器读取地址为(PTE2.PPN * 4096 + VA\[20:12\] * 4)的页表项PTE3
 4. PTE3的PPN字段和页内偏移（长度为12的offset）组成了最终结果，物理地址为(PTE3.PPN * 4096 + VS\[11:0\])
+
+## Q2. Huge pages
+
+如Q1所示，整体的偏移量表征为\[20:0\]，所以巨页的大小为2^21 Bytes，即为2GB。
+
+## Q3. Page table calculation
+
+## Q4. `static inline void *page2kva(struct Page *page)`
