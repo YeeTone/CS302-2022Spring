@@ -44,7 +44,3 @@ Page size = 4KB = 2^12 bytes
 因此一共需要1个一级页表和3个二级页表。
 
 总共空间需要的空间：1 \* 2^10 * PTE_size + 3 \* 2^10 * PTE_size = 2^12  * PTE_size = 4KB * PTE_size
-
-
-
-## Q4. `static inline void *page2kva(struct Page *page)`
