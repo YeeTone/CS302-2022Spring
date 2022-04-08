@@ -31,3 +31,5 @@ vma_struct结构体描述一段连续的虚拟地址，从 vm_start 到 vm_end�
   - 虚拟地址无效
   - 虚拟地址有效，但没有分配物理内存页与建立映射关系
 - 现有的权限不能操作对应的PTE
+
+## Q4. Major Page Fault
