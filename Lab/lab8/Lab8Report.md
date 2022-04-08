@@ -23,3 +23,11 @@ mm_struct是内存描述符，描述一个进程的虚拟地址空间，包含�
 vma_struct结构体描述一段连续的虚拟地址，从 vm_start 到 vm_end，描述了虚拟地址空间的一个区间(简称虚拟区)。
 
 > reference: https://blog.csdn.net/lf_2016/article/details/54346121?ref=myread
+
+## Q3. Page Fault
+
+在进程CPU访问虚拟地址时，找不到对应的物理内存的时候出发缺页中断。主要有两种可能：
+- 页表中不存在虚拟地址对应的PTE（Page Table Entry），属于下列两种之一
+  - 虚拟地址无效
+  - 虚拟地址有效，但没有分配物理内存页与建立映射关系
+- 现有的权限不能操作对应的PTE
