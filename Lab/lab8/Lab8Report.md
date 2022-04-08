@@ -33,3 +33,5 @@ vma_struct结构体描述一段连续的虚拟地址，从 vm_start 到 vm_end�
 - 现有的权限不能操作对应的PTE
 
 ## Q4. Major Page Fault
+
+major page fault也称为hard page fault, 指需要访问的内存不在虚拟地址空间，也不在物理内存中，需要从慢速设备载入。处理方法是需要重新从外部的慢速设备中载入页的相关信息。
