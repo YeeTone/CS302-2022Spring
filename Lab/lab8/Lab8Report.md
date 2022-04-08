@@ -42,3 +42,7 @@ major page fault也称为hard page fault, 指需要访问的内存不在虚拟�
 
 
 ## Q5. swap_in & swap_out
+
+Swap只会发生在数据不在RAM（Random Access Memory）中的情况。
+- Swap in：将硬盘中的数据放入主存或者RAM。时机是只要内存仍有空闲空间的时候，就会发生Swap in；或者在空间满了，Swap out清理出一片空间后，会再通过Swap in换进来
+- Swap out：将RAM中数据放入硬盘，主要应用于内存空间满了的情况，需要选择一些不太可能经常访问的数据（这取决于具体算法）清理出新空间给新数据高速访问。
