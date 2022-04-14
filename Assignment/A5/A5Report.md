@@ -31,3 +31,7 @@ Number of Page Faults:
 - OPT: 8
 - LRU: 8
 - FIFO: 10
+
+## Q3 Clock Algorithm
+
+## Q4 LRU Algorithm
