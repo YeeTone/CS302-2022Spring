@@ -49,3 +49,18 @@ schedule函数自身的功能：实现CPU的调度
 - le2proc：翻译成进程，以供后续RUNNABLE状态的检查
 - proc_run：上下文切换，使得next获得CPU资源
 - local_intr_restore：恢复系统中断功能
+
+调用流程：
+```
+local_intr_save关闭系统中断
+
+设置current进程状态为不需要等待
+
+通过list_next遍历和le2proc翻译，尝试寻找处于PROC_RUNNABLE的线程
+
+如果没有找到：
+    next <- idleproc
+更新next，并且通过proc_run分配CPU资源给next
+
+local_intr_restore恢复系统中断
+```
