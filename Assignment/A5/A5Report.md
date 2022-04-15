@@ -34,4 +34,29 @@ Number of Page Faults:
 
 ## Q3 Clock Algorithm
 
+Code screenshot:
+
+![image](https://user-images.githubusercontent.com/64548919/163594183-3e484bad-af37-49ce-9ba1-177238e77d81.png)
+
+Part of `swap.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/163594314-fc2750db-0f9f-494a-8ad6-988d716a04ad.png)
+
+Commands under the directory `./week8_exe`:
+
+```
+make clean
+make qemu
+```
+
+Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/163594539-2eeb8a0d-59e9-4229-8558-b07dc8f23141.png)
+
+
 ## Q4 LRU Algorithm
+
+Code screenshot:
+
+![image](https://user-images.githubusercontent.com/64548919/163594765-cb7f8956-84d1-43e9-b230-3ccccc33103b.png)
+
