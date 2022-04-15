@@ -12,4 +12,28 @@
 - Yushan WANG(王宇杉) 11813002@mail.sustech.edu.cn
 
 ## Q1 `do_fork`
+do_fork函数自身的功能：创建当前内核的线程的一个副本，完全复制一份上下文，代码和数据，并为新线程分配资源。
+
+调用函数的功能：
+- alloc_proc：分配并初始化进程的控制块
+- setup_kstack：分配并初始化内核栈
+- copy_mm: 复制或共享内存管理（本次实验中没有起作用）
+- copy_thread: 设置进程的中断帧和上下文
+- list_add: 将设置好的进程加入链表
+- wakeup_proc：设置新进程为就绪态
+- put_kstack：setup_kstack内存不足时，重设内核栈
+- kfree：清理释放创建失败的进程的资源
+
+调用流程：
+```
+当前进程数满了 -> 直接返回 -E_NO_FREE_PROC
+alloc_proc()失败了 -> 直接返回 -E_NO_MEM
+setup_kstack(proc)为-E_NO_MEM -> 释放proc资源，然后返回-E_NO_MEM
+复制内存内容
+设置进程的中断帧和上下文
+将新进程加入链表
+设置为就绪态
+更新进程数
+返回新进程id
+```
 ## Q2 `schedule`
