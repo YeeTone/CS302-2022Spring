@@ -32,6 +32,11 @@ Number of Page Faults:
 - LRU: 8
 - FIFO: 10
 
+This is the draft, showing the replacement process.
+
+![image](https://user-images.githubusercontent.com/64548919/163595324-9a474ca9-1c7d-41cc-bc8e-a187a1ec697f.png)
+
+
 ## Q3 Clock Algorithm
 
 Code screenshot:
@@ -60,3 +65,18 @@ Code screenshot:
 
 ![image](https://user-images.githubusercontent.com/64548919/163594765-cb7f8956-84d1-43e9-b230-3ccccc33103b.png)
 
+Part pf `swap.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/163595073-edd6d65b-7fe7-4b83-83da-aa5600e41e71.png)
+
+
+Commands under the directory `./week8_exe`:
+
+```
+make clean
+make qemu
+```
+
+Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/163595119-67c5c436-baa0-4927-8fa3-ef8a3af23dfc.png)
