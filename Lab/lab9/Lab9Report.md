@@ -36,4 +36,16 @@ setup_kstack(proc)为-E_NO_MEM -> 释放proc资源，然后返回-E_NO_MEM
 更新进程数
 返回新进程id
 ```
+> reference: https://zhuanlan.zhihu.com/p/263007381
+
+
 ## Q2 `schedule`
+
+schedule函数自身的功能：实现CPU的调度
+
+调用函数的相关功能：
+- local_intr_save：关闭中断功能，避免因中断引起并发问题
+- list_next：拿到链表的下一个节点的指针
+- le2proc：翻译成进程，以供后续RUNNABLE状态的检查
+- proc_run：上下文切换，使得next获得CPU资源
+- local_intr_restore：恢复系统中断功能
