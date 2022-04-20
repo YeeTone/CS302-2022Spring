@@ -35,5 +35,27 @@ The best-suited workload for migration:
 - micro-service application with several layers
 - need to be expanded by the requirement
 
-### 1.3 3 well-known VMMs
+### 1.3 Three well-known VMMs
 XenoLinux(X), VMware workstation 3.2(V) and User-Mode Linux(U)
+
+### 1.4 Five concepts
+#### Paravirtualization
+Paravirtualization is a kind of hardware virtualization implementation technique.
+Paravirtualization uses VMMs to communicate with the local hardware.
+It accelerates the program, and does not need to re-compile or cause system fault, or make any changes to the users' applications.
+Therefore it needs to have some modification to the users' operating system to fit the corresponding hardware interfaces.
+But it cannot support all operating systems. For instance, Xen cannot run on the Windows 10 platform.
+
+#### Full virtualization
+In the full virtualization is another kind of hardware virtualization implementation technique.
+This technique uses virtual machine to handle the cooperation between OS and local hardware.
+Full virtualization can be faster than the hardware simulation, but slower than the original machine.
+And full virtualization does not need to make change to the users' OS.
+It can also support several OSes, which needs to support the local hardware.
+
+#### Binary translation
+This is used to translate the original binary code to simulate another instruction set. It can be implemented by hardware or software.
+It could be used in the translation of VMMs so that VMMs can support a wider range of target opearting systems.
+
+#### Hardware-assisted virtualization
+#### Hybrid virtualization
