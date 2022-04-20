@@ -34,3 +34,6 @@ The best-suited workload for migration:
 - data storage and protection
 - micro-service application with several layers
 - need to be expanded by the requirement
+
+### 1.3 3 well-known VMMs
+XenoLinux(X), VMware workstation 3.2(V) and User-Mode Linux(U)
