@@ -23,3 +23,8 @@ This means in order to tolerate the system fault, the virtualization application
 
 #### Workload consolidation
 Work consolidation allows the companies to execute several different programs which requires to be run certain operating systems on several hardware platforms previously, on only one hardware platform. Work consolidation applied virtualization so that the several kinds of operating systems(older and newer version) at one machine at the same time.
+
+#### Workload migration
+This concept means the operation that moves one running workload from one architecture environment to another.
+Saving the application running status in a virtual machine will be a nice choice since it will not depend on the hardware support.
+Moreover, the work balancing and failure prediction could improve the stability of migration process.
