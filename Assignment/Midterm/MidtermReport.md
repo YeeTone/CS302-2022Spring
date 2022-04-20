@@ -28,3 +28,9 @@ Work consolidation allows the companies to execute several different programs wh
 This concept means the operation that moves one running workload from one architecture environment to another.
 Saving the application running status in a virtual machine will be a nice choice since it will not depend on the hardware support.
 Moreover, the work balancing and failure prediction could improve the stability of migration process.
+
+The best-suited workload for migration:
+- capacity varies a lot
+- data storage and protection
+- micro-service application with several layers
+- need to be expanded by the requirement
