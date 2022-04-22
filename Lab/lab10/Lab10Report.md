@@ -12,9 +12,11 @@
 - Yushan WANG(王宇杉) 11813002@mail.sustech.edu.cn
 
 ## Q1 S->U
-1. user_main执行exec()，替换进程资源
-2. 更改status的SPP位，使得返回至Umode
+1. user_main执行exec()和load_icode()，替换进程资源
+2. 更改status的SPP位为0，使得返回至Umode
 3. 设置epc的值为新程序入口，使得sret的时候返回跳转执行新程序
+4. 中断处理结束，trapret恢复上下文
+5. 执行sret，切换至用户态
 
 
 ## Q2 用户进程调用系统调用
