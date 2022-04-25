@@ -145,3 +145,13 @@ VMCS can implement the virtualization of CPUR in Intel x86 and record the vCPU s
 #### VM exit & VM entry
 - VM exit: the transition from current running VM to VMM, since VMM must gain the system control for some reasons. This operation lets CPU change into VMX Root status.
 - VM entry: the transition from VMM to current running VM. This operation lets CPU change into VMX non-Root status.
+
+### 3.7 Virtualize interrupts by Xen and Intel VT-x
+
+TODO!
+
+### 3.8  Intel VT-x support for exception virtualization
+
+TODO!
+
+## 4. Address translation
