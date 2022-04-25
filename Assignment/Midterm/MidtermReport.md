@@ -58,4 +58,90 @@ This is used to translate the original binary code to simulate another instructi
 It could be used in the translation of VMMs so that VMMs can support a wider range of target opearting systems.
 
 #### Hardware-assisted virtualization
+Hardware-assisted virtualization is a native implementation of virtualization.
+Hardware provides structure to support the virtual machine to allow and watch the user OS to run independently.
+
+Moreover, there are several platform supporting this technique, such as AMD-V and Intel VT-x in x86, VT-d in IOMMU etc.
 #### Hybrid virtualization
+Hybrid virtualization is becoming prevailing amont the users.
+It can combine several kinds of virtualization technique and gather their benefits.
+
+It has several advantages among the previous virtualization: 
+1. It can reduce the expense for changing codes in users' applications;
+2. It does not spend too much time on the shutdown of operating system;
+3. It could be more cheap and cost less money by the developers;
+4. It can support several resource access when the resource is required;
+
+Thus it is becoming popular among several companies and actual development environment.
+
+## 2. Privilege levels
+### 2.1 Privilege
+There are 4 privilege levels, whose level number means: the lower level number, the higher the privilege levels.
+
+1. Level 0: OS Kernel
+2. Level 1: OS Services
+3. Level 2: OS Services
+4. Level 3: User Applications
+
+Three examples:
+TODO!
+
+### 2.2 Ring compression
+As described previously, there are 4 levels in the privilege rings.
+In order to protect VMM which is from user software, IA-32 uses 2 mechanisms named segment limits and paging.
+
+However, IA-32 cannot differentiate the privilege leve of 0-2.
+Thus the guest operating system can only be executed on level 3 and cannot get protection.
+This is called ring compression.
+
+### 2.3 Ring compression for X86 (IA-32)
+
+TODO!
+
+### 2.4 Ring compression for x86-64
+
+TODO!
+
+### 2.5 Ring aliasing
+This appears when a software is executed under the privilege level. But the software is not written in this privilege level.
+
+### 2.6 VMX root and VMX non-root in VT-x
+VMX root: the codes are executed between the instructions `vm-exit` and `VMRESUME`.
+
+VMX non-root: the codes are executed in the normal kernel mode.
+
+### 2.7 Address the challenge
+Some commands can be executed by the virtual machine normal, thus it is not required to simulate the privileged commands.
+VMMs are allowed to execute the user software in its prefered privilege level. VMMs are able to be freed from the priviledged simulation commands.
+
+## 3. System calls, interrupts and exceptions
+### 3.1 Purpose & Difference
+Purpose of system call: request for the system service provided by the hardware. OS banned the user to use hardware resource directly, thus the user can only use the interfaces provided by the operating system to access the resource.
+
+Difference: 
+- System call: user program request the operating system to get the support by the hearware resource.
+- Function call: just a program request another one to complete the specific funtion.
+
+### 3.2 Hypercall in Xen
+Hypercall is a synchronous procedure that domain uses to do some operations needing privleges such as updating the pagetables.
+
+### 3.3 Xen & exceptions
+
+TODO!
+
+### 3.4 Challenges of virtualizing interrupts
+
+TODO!
+
+### 3.5 Xen & interrupts
+
+TODO!
+
+### 3.6 VMCS
+#### VMCS
+VMCS can manage the entries and exits of VMs, and the behaviour of processor in the operations of VMX non-root.
+VMCS can implement the virtualization of CPUR in Intel x86 and record the vCPU status.
+
+#### VM exit & VM entry
+- VM exit: the transition from current running VM to VMM, since VMM must gain the system control for some reasons. This operation lets CPU change into VMX Root status.
+- VM entry: the transition from VMM to current running VM. This operation lets CPU change into VMX non-Root status.
