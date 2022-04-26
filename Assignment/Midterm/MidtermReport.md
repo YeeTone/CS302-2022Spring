@@ -145,6 +145,8 @@ VT-x and VT-i gives explicit support for the interrupts virtualization.
 - External-interrupt exiting: VM-execution control. If the control value is 1, the VMM will ban any operation of guest trying to modify EFLAGS.IF. VT-i has virtualization-acceleration. It can ban the guest software to affect interrupt masking and ban transition to VMM.
 - Interrupt-window exiting: VM-execution control. If the control value is 1, the VM exit will be triggered, when the guest software process is receivint interrupt signal. VT-i uses PAL service to register the pending of the virtual interrupt.
 
+Benefit: This could make the virtualization of interrupts safer and faster. Thus the virtualization will be of more safety.
+
 ### 3.6 VMCS
 #### VMCS
 VMCS can manage the entries and exits of VMs, and the behaviour of processor in the operations of VMX non-root.
