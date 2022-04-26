@@ -157,10 +157,48 @@ TODO!
 ## 4. Address translation
 
 ### 4.1 x86 (IA-32) address translation
+The translation is mapping the logical address to the physical address. It has several steps:
+
+1. Logical Address -> Linear Address, via segmentation unit
+2. Linear Address -> Physical Address, via paging unit
+
+The first procedure is done by:
+```
+Linear Address = Base Address + offset.
+Base Address = Linear address of first byte
+```
+
+The second procedure is done by the page table, which stores the mapping from 32-bit linear address to 32-bit physical address.
+
+![image](https://user-images.githubusercontent.com/64548919/165239959-51de3542-3150-4518-aad6-ad4fa432c8c5.png)
+
+> reference: a part of slide in https://cs.hac.ac.il/staff/martin/Micro_Modern/slide03.pdf
 
 ### 4.2 x86-64 address translation
+x86-64 also uses page table lookup to do the mapping from logical address to physical address.
+Moreover, in the x86-64 design, the page table is widely implemented by multi-level structure.
+This is because multi-level design can save memory for the page table. The page table we try to access may not have a valid physical address.
+Therefore, the tree of multi-level page-table may be sparse thus the memory could be saved.
+
+The following figure from https://blog.csdn.net/hhhanpan/article/details/80548687 shows the translation within x64-64.
+
+![image](https://user-images.githubusercontent.com/64548919/165243835-fa457d63-dea5-4ec1-b7fa-8c8a14dde994.png)
+
 
 ### 4.3 Memory relation
+
+- Guest virtual memory: This is the continuous virtual address space provided by the guest OS. It is visible to the running applications in the virtual machine.
+- Guest physical memory: This is the physical memory provided by the host physical memory. This helps VMMs to give the mapping from the memory of gusest to it of host.
+- Machine memory: Besides virual memory and physical memory, the hypervisor adds an additional layer, which is named Machine Memory. This part is visible to the hypervisor on the system.
+
+Their relation:
+1. Virtual memory provides uniform address space.
+2. The virtual address is mapped into physical memory by the guest operating system.
+3. The physical memory is mapped into machine memory by the hypervisors.
+
+![image](https://user-images.githubusercontent.com/64548919/165246030-a982f223-64f0-4ca2-b4b2-80f525079de9.png)
+
+> Disgram reference: https://www.simongreaves.co.uk/vmware-virtual-machine-memory-guide/
 
 ### 4.4 Xen management
 
