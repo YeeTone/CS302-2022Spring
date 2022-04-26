@@ -206,7 +206,8 @@ Their relation:
 
 ### 4.4 Xen management
 
-TODO!
+OS will do the mapping, from virtual addresses to the physical ones.
+And VMM will do the mapping to locate the machine addresses through the pre-OS page tables.
 
 ### 4.5 Address-space compression
 
@@ -240,4 +241,7 @@ The following figure shows the procedure:
 > reference: https://revers.engineering/mmu-ept-technical-details/
 ### 4.8 Xen allocation
 
-TODO!
+When the domain is created, the initial memory is allocated to support strong isolation.
+But the domain may require different amount of memory resources.
+- Case 1: The domain needs more memory resource. It will request more momory page from Xen, until it reaches the reservation limit.
+- Case 2: The domain does not need so much memory. It will free the memory page back into Xen to save the memory.
