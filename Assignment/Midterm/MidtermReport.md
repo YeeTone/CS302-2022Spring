@@ -233,7 +233,7 @@ The following figure shows the procedure:
 
 ![image](https://user-images.githubusercontent.com/64548919/165252247-3337916e-5313-4932-b461-e4e3666ccce0.png)
 
-
+> reference: https://revers.engineering/mmu-ept-technical-details/
 ### 4.8 Xen allocation
 
 TODO!
