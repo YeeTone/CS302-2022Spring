@@ -222,4 +222,18 @@ Xen solve this problem using VT-x.
 
 ### 4.7 Intel EPT
 
+Intel EPT is an implementation of SLAT. It was firstly introduced in the Nehalem microarchitecture, which could be found in several processors such as Core i7, i5 and i3.
+
+Intel EPT is release as second generation of hardware support, which contributes to the MMU virtualization.
+In the virtualization with SLAT, a virtual address is passed into MMU and TLB do a look-up to check the existence of the mapping between virtual address and physical address. 
+- Mapping exist. We get TLB hit and get the address from the TLB section.
+- Mapping miss. We need to traverse the multi-level page structure to get the translation result.
+
+The following figure shows the procedure:
+
+![image](https://user-images.githubusercontent.com/64548919/165252247-3337916e-5313-4932-b461-e4e3666ccce0.png)
+
+
 ### 4.8 Xen allocation
+
+TODO!
