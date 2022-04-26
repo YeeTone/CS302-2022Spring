@@ -159,12 +159,13 @@ VMCS has a state area for the guest and host, and this area can be saved at the 
 And VMCS which can control the guest operation selection will cause VM exits.
 
 ### 3.7 Virtualize interrupts by Xen and Intel VT-x
-
-TODO!
+Intel VT-x is used in the storage of Xen. This provides the support of "virtual processor" abstraction to the guest operating system.
+Thus the "virtual procressor" could contribute to the virtualiztion of interrupts and make the virtualization easier.
+But Xen take the responsibility of managing devices, and enforcing the resource isolation.
 
 ### 3.8  Intel VT-x support for exception virtualization
 
-TODO!
+Exceptions and other instructions are likely to cause VM exits conditionally. This needs the support of Intel VT-x and uses the VM-execution control fields, which is a part of VMCS.
 
 ## 4. Address translation
 
@@ -253,3 +254,4 @@ When the domain is created, the initial memory is allocated to support strong is
 But the domain may require different amount of memory resources.
 - Case 1: The domain needs more memory resource. It will request more momory page from Xen, until it reaches the reservation limit.
 - Case 2: The domain does not need so much memory. It will free the memory page back into Xen to save the memory.
+
