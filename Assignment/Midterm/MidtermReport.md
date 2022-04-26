@@ -202,9 +202,23 @@ Their relation:
 
 ### 4.4 Xen management
 
+TODO!
+
 ### 4.5 Address-space compression
 
+The guests operating systems may required to access the whole virtual memory space of the processor, and there are two points to be noticed:
+- VMM can run in the virtual address space of guest, but it also occupy large amounts of virtual address space.
+- VMM can run in the separate address space. But it needs to save virtual address space to manage the transformation between guest software and VMMs.
+
+In the procedure, VMM will ban the guest to use the parts of using those address space being used, which is called address-space compression.
+
 ### 4.6 Xen solution to 4.5
+
+Xen solve this problem using VT-x.
+1. When the system is doing the transition between user software and VMMs, the linear address space is changed thus allows the guest software to make full use of the address space.
+2. VMCS will manage the transitions of VMX. This resides in the physical address space, but not on the linear one.
+
+> reference: http://pages.di.unipi.it/tonelli/baiardi/didattica/SR/2016/2.0-virtualization.pdf
 
 ### 4.7 Intel EPT
 
