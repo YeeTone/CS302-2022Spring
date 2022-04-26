@@ -150,6 +150,9 @@ VT-x and VT-i gives explicit support for the interrupts virtualization.
 VMCS can manage the entries and exits of VMs, and the behaviour of processor in the operations of VMX non-root.
 VMCS can implement the virtualization of CPUR in Intel x86 and record the vCPU status.
 
+VMCS has a state area for the guest and host, and this area can be saved at the VM entry and VM exit.
+And VMCS which can control the guest operation selection will cause VM exits.
+
 #### VM exit & VM entry
 - VM exit: the transition from current running VM to VMM, since VMM must gain the system control for some reasons. This operation lets CPU change into VMX Root status.
 - VM entry: the transition from VMM to current running VM. This operation lets CPU change into VMX non-Root status.
