@@ -155,3 +155,19 @@ TODO!
 TODO!
 
 ## 4. Address translation
+
+### 4.1 x86 (IA-32) address translation
+
+### 4.2 x86-64 address translation
+
+### 4.3 Memory relation
+
+### 4.4 Xen management
+
+### 4.5 Address-space compression
+
+### 4.6 Xen solution to 4.5
+
+### 4.7 Intel EPT
+
+### 4.8 Xen allocation
