@@ -131,7 +131,11 @@ TODO!
 
 ### 3.4 Challenges of virtualizing interrupts
 
-TODO!
+Currently, IA-32 uses IF(interrupt flag) in EFLAGS to control the interrupt shield.
+And VMMs may manage the external interrupt and prevent the guest softeware to control the interrupt.
+And current protection causes fault when guest software try to control the interrupt when the ring deprivileging is performed.
+
+But this method may be failed because some OSs are likely to mask and unmask the interrupts of themselves, which brings negative effect the the system performance.
 
 ### 3.5 Xen & interrupts
 
