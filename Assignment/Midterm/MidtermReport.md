@@ -84,23 +84,25 @@ There are 4 privilege levels, whose level number means: the lower level number, 
 4. Level 3: User Applications
 
 Three examples:
-TODO!
+- Example 1: Privilege separation could split one single program to several programs with smaller parts. Thus these programs can only communicate with others via the operating system. This increases the security of the whole system since it cannot attack the part with higher privilege but only cause a denial-of-service attack.
+- Example 2: Network applications needs to do some operations with certain privilege. Thus those softwares will give back and separate the privilege, and set the user into a lower-privilege level(i.e. deleting root in Unix). Privilege separation contributes a lot to the permission control.
+- Example 3: Privilege separation could be implemented as splitting the program into two processes. The major one does not have privilege while smaller one does. Thus those processes can do the privileged operations but the attack to the major program cannot get the high privilege.
 
 ### 2.2 Ring compression
 As described previously, there are 4 levels in the privilege rings.
 In order to protect VMM which is from user software, IA-32 uses 2 mechanisms named segment limits and paging.
 
 However, IA-32 cannot differentiate the privilege leve of 0-2.
-Thus the guest operating system can only be executed on level 3 and cannot get protection.
+Thus the guest operating system can only be executed on level 3 and cannot get protection from those applications.
 This is called ring compression.
 
 ### 2.3 Ring compression for X86 (IA-32)
 
-TODO!
+IA-32 uses segment limits and paging to handle ring compression in the X86 (IA-32) architecture.
 
 ### 2.4 Ring compression for x86-64
 
-TODO!
+x86-64 uses paging to handle ring compression in the X86-64 architecture.
 
 ### 2.5 Ring aliasing
 This appears when a software is executed under the privilege level. But the software is not written in this privilege level.
