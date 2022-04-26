@@ -141,7 +141,9 @@ But this method may be failed because some OSs are likely to mask and unmask the
 
 ### 3.5 Xen & interrupts
 
-Currently, IA-32 uses IF(interrupt flag) in EFLAGS to control the interrupt shield.
+VT-x and VT-i gives explicit support for the interrupts virtualization.
+- External-interrupt exiting: VM-execution control. If the control value is 1, the VMM will ban any operation of guest trying to modify EFLAGS.IF. VT-i has virtualization-acceleration. It can ban the guest software to affect interrupt masking and ban transition to VMM.
+- Interrupt-window exiting: VM-execution control. If the control value is 1, the VM exit will be triggered, when the guest software process is receivint interrupt signal. VT-i uses PAL service to register the pending of the virtual interrupt.
 
 ### 3.6 VMCS
 #### VMCS
