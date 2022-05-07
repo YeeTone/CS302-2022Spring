@@ -1,4 +1,4 @@
-# Assignment6 Report
+# Assignment7 Report
 姓名：Yitong WANG(王奕童) 11910104@mail.sustech.edu.cn
 
 学号：11910104
@@ -107,7 +107,7 @@ Therefore, the execution order is (P3, P2, P4, P1), and the system is in a safe 
 
 Two types of solutions:
 
-**1. Using mutex lock **
+**1. Use Sleep-based locks(pthread_mutex_lock)**
 
 Explain your design idea: Use one `pthread_mutex_t` to lock the eating status, so that there is only 1 philosophers can eat the spaghetti.
 
@@ -119,4 +119,4 @@ Running result screenshots:
 
 ![image](https://user-images.githubusercontent.com/64548919/167263769-42f5cb65-ceb3-490d-b5ef-3eaecd1eda7a.png)
 
-**2. **
+**2. Use Spin-based locks**
