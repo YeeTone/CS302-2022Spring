@@ -102,3 +102,21 @@ Then allocate 1B resource to P4. P4 can be executed normally and the free resour
 Finally, P1 can be executed normally.
 
 Therefore, the execution order is (P3, P2, P4, P1), and the system is in a safe mode.
+
+## Q2. Dining philosophers problem
+
+Two types of solutions:
+
+**1. Using mutex lock **
+
+Explain your design idea: Use one `pthread_mutex_t` to lock the eating status, so that there is only 1 philosophers can eat the spaghetti.
+
+The modified code screenshots:
+
+![image](https://user-images.githubusercontent.com/64548919/167263734-f47e9742-4479-4196-9c81-cd9fc679d21b.png)
+
+Running result screenshots:
+
+![image](https://user-images.githubusercontent.com/64548919/167263769-42f5cb65-ceb3-490d-b5ef-3eaecd1eda7a.png)
+
+**2. **
