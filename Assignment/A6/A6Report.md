@@ -39,6 +39,66 @@ After that, P4 can also be run and make the free resource into:
 
 Finally, P1 can be executed.
 
-Therefore, the execution order is (P3, P2, P4, P1).
+Therefore, the execution order is (P3, P2, P4, P1), and the system is in a safe mode.
 
 ### （2） If P4 requests (0,0,1,1), please run the Banker’s algorithm to determine if the request should be granted.
+i. check the need and request:
+
+request(P4) = (0, 0, 1, 1) <= (0, 1, 1, 1) = need(P4);
+
+passed.
+
+ii. check the available and request:
+
+request(P4) = (0, 0, 1, 1) <= (1, 0, 1, 2) = available(P4)
+
+passed
+
+iii. check the deadlock.
+
+First assume the allocation is successful.
+
+Then the resource condition is changed into:
+- P1: capture 0A 2B 1C 0D，require 2A 1B 0C 0D
+- P2：capture 0A 1B 0C 1D，require 0A 0B 2C 1D
+- P3：capture 0A 0B 1C 0D，require 1A 0B 0C 1D
+- P4：capture 1A 1B 1C 1D，require 0A 1B 0C 0D
+- Free Resource：1A 0B 0C 1D
+
+We can first allocate free resource to P3. After P3 execution, the resource becomes: 1A 0B 1C 1D.
+
+But it can never allocate resource for any processes among P1, P2 and P4.
+
+Thus it is a unsafe state. The assumption failes and the allocation is not successful.
+
+Thus the request cannot be granted.
+
+### （3） Let’s assume P4’s request was granted anyway (regardless of the answer to question 2). If then the processes request additional resources as follows, is the system in a deadlock state? Why? [10 pts]
+
+The system is not in a deadlock state.
+
+After resource allocation, the resource condition is:
+
+
+Then the resource condition is changed into:
+- P1: capture 0A 2B 1C 0D，require 2A 1B 0C 0D
+- P2：capture 0A 1B 0C 1D，require 0A 0B 1C 0D
+- P3：capture 0A 0B 1C 0D，require 1A 0B 0C 0D
+- P4：capture 1A 1B 1C 1D，require 0A 1B 0C 0D
+- Free Resource：1A 0B 0C 1D
+
+We first allocate 1A resource to P3. P3 can be executed normally and the free resource becomes:
+
+1A 0B 1C 1D
+
+Then allocate 1C resource to P2. P2 can be executed normally and the free resource becomes:
+
+1A 1B 1C 2D
+
+Then allocate 1B resource to P4. P4 can be executed normally and the free resource becomes:
+
+2A 2B 2C 3D
+
+Finally, P1 can be executed normally.
+
+Therefore, the execution order is (P3, P2, P4, P1), and the system is in a safe mode.
