@@ -29,6 +29,41 @@
 
 ## Q1. Implement a syscall that can set the priority of current process
 
+- Design idea:
+
+read the source code and add some codes based on the existing.
+
+- Modified code:
+
+1. Add code in `user/libs/ulib.h` and `user/libs/ulib.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167280673-0dc1b00a-aa74-46ce-a448-04b4e7d9f1ab.png)
+
+![image](https://user-images.githubusercontent.com/64548919/167280660-10fdf836-ab2d-427a-b5da-c7f5c7d65349.png)
+
+2. Add code in `user/libs/syscall.h` and `user/libs/syscall.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167280715-c40f3c0f-4fa7-40a5-af84-84b0acbdf062.png)
+
+![image](https://user-images.githubusercontent.com/64548919/167280734-b38b9ada-301c-4f55-93fe-a4f1c52d9f8d.png)
+
+3. Add #define in `libs/unistd.h`:
+
+![image](https://user-images.githubusercontent.com/64548919/167280756-839ca107-09b8-4e22-9ac4-dcde6e8a5080.png)
+
+4. Modify `user_main` in `kern/process/proc.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167280780-3042a33c-b33d-4e54-88ff-a123488af324.png)
+
+5. Modify `syscalls` in `kern/syscall.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167280791-34b350e8-f4a4-4092-9f32-a138619da5b8.png)
+
+- Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/167280647-9515aab0-c229-4e43-a7ab-cd9aba1f627e.png)
+
+
 ## Q2. Implement the RR scheduling algorithm based on priority
 
 ## Q3. Preemptive process scheduling
