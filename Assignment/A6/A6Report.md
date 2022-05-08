@@ -35,7 +35,7 @@ read the source code and add some codes based on the existing.
 
 - Modified code:
 
-0. Release the comments in `user/ex1.c`
+0. Release the annotations in `user/ex1.c`
 
 1. Add code in `user/libs/ulib.h` and `user/libs/ulib.c`:
 
@@ -72,7 +72,7 @@ read the source code and add some codes based on the existing.
 
 - Modified code:
 
-0. Release the comments in `user/ex2.c`
+0. Release the annotations in `user/ex2.c`
 
 1. Modify the codes in `kern/schedule/default_sched.c`:
 
@@ -92,7 +92,7 @@ read the source code and add some codes based on the existing.
 
 - Modified code:
 
-0. Release the comments in `user/ex3.c`
+0. Release the annotations in `user/ex3.c`
 
 1. Modify `user_main` in `kern/process/proc.c`:
 
