@@ -27,6 +27,53 @@
 | 10                   | C    | C         | C  | C   | A        |
 | Avg.Turn-around Time | 4.5  | 4.5       |4.75| 4.5 | 4.25     |
 
+Reason:
+- HRRN
+At time 1, A arrives and is executed.
+
+At time 2, B arrives. But it is non-preemptive. So A is executed.
+
+At time 3,4, similar with time 2, A is executed. At time 4, D arrives and A finishes.
+
+At time 5, C arrives and the waiting time: B3 C0 D1. HRR(B) = 4, HRR(C) = 2/3, HRR(D) = 1. Thus choose B and B is finished.
+
+At time 6, the waiting time: C1 D2. HRR(C) = 1, HRR(D) = 3/2. Thus choose D.
+
+At time 7, since it is non-preemptive, D is executed.
+
+At time 8,9,10, C is executed.
+
+- FIFO:
+
+Since FIFO is non-preemptive, just follow the natural order of arrival.
+
+- RR:
+At time 1, A is executed.
+
+At time 2, B arrives. But since B is newly coming into the queue, we choose A.
+
+At time 3, since quanta for RR is 1, we choose B and B is finished.
+
+At time 4, D arrives. But based on the previous rule, we choose A.
+
+At time 5, C arrives. We choose D.
+
+At time 6, we choose A and A finishes.
+
+At time 7, we choose C.
+
+At time 8, D is finished.
+
+At time 9,10, C is executed and finished.
+
+- SJF:
+
+Since SJF is non_preemptive, we select the process based on the estimated CPU cost, after one process is finished. Just pick the one with the lowest cost in the current queue.
+
+- Priority:
+
+Since SJF is preemptive, we select the process based on the priority, after each CPU cycle. Just pick the one with the highest priority in the current queue.
+
 ## Q1. Implement a syscall that can set the priority of current process
 
 - Design idea:
