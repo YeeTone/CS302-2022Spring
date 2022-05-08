@@ -121,3 +121,8 @@ read the source code and add some codes based on the existing.
 ![image](https://user-images.githubusercontent.com/64548919/167288688-6cff56f0-b1aa-4e85-8be2-bbcc072cd8da.png)
 
 ![image](https://user-images.githubusercontent.com/64548919/167288654-b8a5f2f8-a72a-422a-b72c-6a0a655c0cd4.png)
+
+7. Modify `RR_pick_next` in `kern/schedule/default_sched.c`
+
+![image](https://user-images.githubusercontent.com/64548919/167288923-ab186269-43bf-4cbd-9653-bb3059a0d848.png)
+
