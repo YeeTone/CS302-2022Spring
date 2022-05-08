@@ -35,6 +35,8 @@ read the source code and add some codes based on the existing.
 
 - Modified code:
 
+0. Release the comments in `user/ex1.c`
+
 1. Add code in `user/libs/ulib.h` and `user/libs/ulib.c`:
 
 ![image](https://user-images.githubusercontent.com/64548919/167280673-0dc1b00a-aa74-46ce-a448-04b4e7d9f1ab.png)
@@ -65,5 +67,23 @@ read the source code and add some codes based on the existing.
 
 
 ## Q2. Implement the RR scheduling algorithm based on priority
+
+- Design idea: Use the priority to set the value of time_slice.
+
+- Modified code:
+
+0. Release the comments in `user/ex2.c`
+
+1. Modify the codes in `kern/schedule/default_sched.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167281390-12659f3f-9579-4867-892e-103daaf42f26.png)
+
+2. Modify `user_main` in `kern/process/proc.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167281436-618cda9a-309f-49c1-8020-8370f0283d91.png)
+
+- Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/167281472-7ca6a1a8-db63-4120-977d-8257bd94d90b.png)
 
 ## Q3. Preemptive process scheduling
