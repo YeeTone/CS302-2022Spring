@@ -90,6 +90,8 @@ read the source code and add some codes based on the existing.
 
 - Design idea: Implement syscall in user and kern mode. Use loop to collect all the good values, then select the one with maximum value.
 
+- Running sequence of processes: 65374
+
 - Modified code:
 
 0. Release the annotations in `user/ex3.c`
@@ -126,3 +128,6 @@ read the source code and add some codes based on the existing.
 
 ![image](https://user-images.githubusercontent.com/64548919/167288923-ab186269-43bf-4cbd-9653-bb3059a0d848.png)
 
+- Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/167288971-35da9b29-ab7c-4358-9df6-2cd4848b0100.png)
