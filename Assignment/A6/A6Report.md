@@ -25,7 +25,7 @@
 | 8                    | C    | C         | C  | C   | C        |
 | 9                    | C    | C         | A  | C   | A        |
 | 10                   | C    | C         | C  | C   | A        |
-| Avg.Turn-around Time | 4.5  | 4.25      | 6  | 4.5 | 4.25     |
+| Avg.Turn-around Time | 4.5  | 4.5       | 6  | 4.5 | 4.25     |
 
 ## Q1. Implement a syscall that can set the priority of current process
 
