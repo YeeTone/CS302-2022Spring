@@ -90,7 +90,7 @@ read the source code and add some codes based on the existing.
 
 - Design idea: Implement syscall in user and kern mode. Use loop to collect all the good values, then select the one with maximum value.
 
-- Running sequence of processes: 65374
+- Running sequence of processes: 6->5->3->7->4
 
 - Modified code:
 
