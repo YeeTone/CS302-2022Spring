@@ -57,9 +57,9 @@ read the source code and add some codes based on the existing.
 
 ![image](https://user-images.githubusercontent.com/64548919/167280780-3042a33c-b33d-4e54-88ff-a123488af324.png)
 
-5. Modify `syscalls` in `kern/syscall.c`:
+5. Modify `syscalls` in `kern/syscall/syscall.c`:
 
-![image](https://user-images.githubusercontent.com/64548919/167280791-34b350e8-f4a4-4092-9f32-a138619da5b8.png)
+![image](https://user-images.githubusercontent.com/64548919/167288863-e2284c8b-5d17-4273-b1aa-de39e0239309.png)
 
 - Running result:
 
@@ -88,7 +88,7 @@ read the source code and add some codes based on the existing.
 
 ## Q3. Preemptive process scheduling
 
-- Design idea:
+- Design idea: Implement syscall in user and kern mode. Use loop to collect all the good values, then select the one with maximum value.
 
 - Modified code:
 
@@ -98,3 +98,26 @@ read the source code and add some codes based on the existing.
 
 ![image](https://user-images.githubusercontent.com/64548919/167281616-bf7f6600-5c46-4e39-92ca-308794c90e04.png)
 
+2. Unable the clock interrupt.
+
+![image](https://user-images.githubusercontent.com/64548919/167288499-0981c551-f2da-485d-a125-6f2ade5fd2f4.png)
+
+3. Add #define in `libs\unistd.h`:
+
+![image](https://user-images.githubusercontent.com/64548919/167288538-cb98d07a-4845-4475-918a-e4a6c382d283.png)
+
+4. Add `sys_setgood` in `kern/syscall/syscall.c`
+
+![image](https://user-images.githubusercontent.com/64548919/167288584-1578c7af-aea9-428e-800f-be5484f85791.png)
+
+5. Add `sys_setgood` in `user/libs/syscall.h` and `user/libs/syscall.c`
+
+![image](https://user-images.githubusercontent.com/64548919/167288633-689cfc78-976b-4f46-8cfd-1f0f05b6b05a.png)
+
+![image](https://user-images.githubusercontent.com/64548919/167288612-38b97a33-56e6-44a9-b2ef-cc7a6f9d1fc7.png)
+
+6. Add `set_good` in `user/libs/ulib.h` and `user/libs/ulib.c`
+
+![image](https://user-images.githubusercontent.com/64548919/167288688-6cff56f0-b1aa-4e85-8be2-bbcc072cd8da.png)
+
+![image](https://user-images.githubusercontent.com/64548919/167288654-b8a5f2f8-a72a-422a-b72c-6a0a655c0cd4.png)
