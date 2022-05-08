@@ -87,3 +87,14 @@ read the source code and add some codes based on the existing.
 ![image](https://user-images.githubusercontent.com/64548919/167281472-7ca6a1a8-db63-4120-977d-8257bd94d90b.png)
 
 ## Q3. Preemptive process scheduling
+
+- Design idea:
+
+- Modified code:
+
+0. Release the comments in `user/ex3.c`
+
+1. Modify `user_main` in `kern/process/proc.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/167281616-bf7f6600-5c46-4e39-92ca-308794c90e04.png)
+
