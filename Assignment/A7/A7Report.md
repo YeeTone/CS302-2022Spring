@@ -111,12 +111,30 @@ Two types of solutions:
 
 Explain your design idea: Use one `pthread_mutex_t` to lock the eating status, so that there is only 1 philosophers can eat the spaghetti.
 
-The modified code screenshots:
+The modified code screenshot:
 
-![image](https://user-images.githubusercontent.com/64548919/167263734-f47e9742-4479-4196-9c81-cd9fc679d21b.png)
+![image](https://user-images.githubusercontent.com/64548919/168101934-61efaaa7-1abb-42b3-90e1-5bca5a1221f6.png)
 
-Running result screenshots:
+Running result screenshot:
 
 ![image](https://user-images.githubusercontent.com/64548919/167263769-42f5cb65-ceb3-490d-b5ef-3eaecd1eda7a.png)
 
-**2. Use Spin-based locks**
+**2. Use ReentrantLock**
+
+Explain your design idea:
+
+Use 2 locks: 1 mutex lock and 1 conditional lock. For each eating operation, we need to check the forks on the left and right, and waiting until the forks are released. And we use 1 integer array to represent the forks using status.
+
+The modified code screenshots:
+
+![image](https://user-images.githubusercontent.com/64548919/168101330-d8568d31-fc48-44c5-aedb-c7653c3c9766.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168101404-92b8d2ee-b4d1-41c3-b9b9-66e67e964b6b.png)
+
+Running screenshot:
+
+![image](https://user-images.githubusercontent.com/64548919/168101760-95a73d23-311d-48c1-9109-abb6c2ee412c.png)
+
+> Reference: https://leetcode.cn/problems/the-dining-philosophers/solution/zhe-xue-jia-jin-can-by-skyshine94-7blq/
+
+## Q3. The too much milk problem
