@@ -28,3 +28,8 @@ local_intr_restore(intr_flag);
 
 ## Q2. Philosopher problem
 
+(1) 可避免死锁。
+
+原因：可以通过`sem_init(&s[i], 1);`确保只有1个哲学家能够拿起筷子，从而将多个线程的执行退化为单线程情况，以避免死锁。
+
+（2）
