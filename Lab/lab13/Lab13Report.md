@@ -32,4 +32,20 @@ local_intr_restore(intr_flag);
 
 原因：可以通过`sem_init(&s[i], 1);`确保只有1个哲学家能够拿起筷子，从而将多个线程的执行退化为单线程情况，以避免死锁。
 
+当唯一执行的哲学家将锁释放后，剩余的哲学家尝试同时竞争锁，拿到锁的哲学家分为两种情况：
+
+- 与释放锁的哲学家相邻：这样就会进入等待状态，直到哲学家用餐完毕才继续执行
+- 与释放锁的哲学家不相邻：无需等待，直接释放锁即可。
+
 （2）
+
+代码截图：
+
+![image](https://user-images.githubusercontent.com/64548919/168234142-0c6153e8-97d7-416a-bb58-c4e381ca3e65.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168234180-34d636a3-bf26-498e-b2b2-a949ef24ee64.png)
+
+运行截图：
+
+![image](https://user-images.githubusercontent.com/64548919/168234046-973dce4a-1537-4849-93ff-ddad1973dd82.png)
+
