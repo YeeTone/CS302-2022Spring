@@ -13,5 +13,18 @@
 
 ## Q1. local_intr_save(intr_flag);
 
+如课件中代码所示：
+```C
+...... 
+local_intr_save(intr_flag); 
+{ 
+    临界区代码 
+}
+local_intr_restore(intr_flag); 
+......
+```
+
+可见```local_intr_save(intr_flag);```是和```local_intr_restore(intr_flag); ```一起避免在进程切换过程中处理中断。
+
 ## Q2. Philosopher problem
 
