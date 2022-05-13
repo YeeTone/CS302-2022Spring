@@ -138,3 +138,23 @@ Running screenshot:
 > Reference: https://leetcode.cn/problems/the-dining-philosophers/solution/zhe-xue-jia-jin-can-by-skyshine94-7blq/
 
 ## Q3. The too much milk problem
+
+Explain your design idea:
+
+Use 2 semaphores to solve this problem. One to handle the milk buying threads(i.e. dad, mom and grandfather) and another to handle the milk drinking thread(i.e. son).
+
+The code screenshots:
+
+![image](https://user-images.githubusercontent.com/64548919/168226668-3cbc9ab0-d899-4371-9ec6-3a3dd2c54c4d.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168226708-82cb12e6-ad2e-4eb9-a62b-d28fe61258ee.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168226771-c25b54f8-6c9f-4d7a-b068-b1d89d4e838c.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168226804-0cf53a89-e1ff-4e38-bc09-8c3d7a734ebc.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168226828-1e196549-ed14-4480-a522-427b20d47311.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168226862-80f32599-d738-4356-879c-5b8429c2f992.png)
+
+![image](https://user-images.githubusercontent.com/64548919/168226891-e2a00a53-6de6-432c-89dd-ecdda0e09eac.png)
