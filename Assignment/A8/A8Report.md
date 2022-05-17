@@ -56,6 +56,8 @@ Differences:
 1. DMA can have better performance than PIO in the usual case. Since PIO may use CPU while DMA not, CPU is slower than DMA.
 2. PIO is much cheaper than DMA, in the area of circuitry design. Thus in the devices not necessary to have great performance, PIO has better cost performance than DMA.
 
+> Reference: http://www.differencebetween.net/technology/difference-between-dma-and-pio/
+
 ### (3) How to protect memory-mapped I/O and explicit I/O instructions from being abused by malicious user process?
 ## 2. Condition variable
 ## 3. Bike
