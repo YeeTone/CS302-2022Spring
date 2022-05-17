@@ -16,7 +16,7 @@
 ### (1) What are the pros and cons of polling and interrupt-based I/O?
 
 For the polling I/O:
-- Pros: It can make interaction of device efficiently.
+- Pros: It can make interaction of device efficiently. This can be seen in the 3rd page in the book chapter:
 ![image](https://user-images.githubusercontent.com/64548919/168814485-f2d38d9c-e93e-4be6-9e16-25def5308014.png)
 
 - Cons: Consider the following in the 4th page in the book chapter:
@@ -28,7 +28,7 @@ For the polling I/O:
 2. polling wastes too much CPU time, just for waiting for the device to finish the tasks.
 
 For the interrpt-based I/O:
-- Pros: Interrupts can allow the overlap for computation and I/O, thus can improve the utilization.
+- Pros: Interrupts can allow the overlap for computation and I/O, thus can improve the utilization. It can be seen in the 5th page in the book chapter:
 ![image](https://user-images.githubusercontent.com/64548919/168814648-98da3ab8-3a3c-45d3-bab7-c187a500bedb.png)
 
 - Cons: Consider the following in the 6th page in the book chapter
