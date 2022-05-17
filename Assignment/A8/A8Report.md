@@ -43,6 +43,19 @@ For the interrpt-based I/O:
 
 
 ### (2) What are the differences between PIO and DMA?
+PIO: Programming I/O. This refers to the data movement from the disk device to the device with the main CPU involved.
+
+![image](https://user-images.githubusercontent.com/64548919/168821508-168f3504-aa35-4d3a-a959-ef96b7adca01.png)
+
+
+DMA: Direct Memory Access. This refers to the progress of data movement from the device to the main memory, without much CPU involvation involvement.
+
+![image](https://user-images.githubusercontent.com/64548919/168821411-09962561-3d94-4206-a726-5dafd293b74d.png)
+
+Differences:
+1. DMA can have better performance than PIO in the usual case. Since PIO may use CPU while DMA not, CPU is slower than DMA.
+2. PIO is much cheaper than DMA, in the area of circuitry design. Thus in the devices not necessary to have great performance, PIO has better cost performance than DMA.
+
 ### (3) How to protect memory-mapped I/O and explicit I/O instructions from being abused by malicious user process?
 ## 2. Condition variable
 ## 3. Bike
