@@ -15,7 +15,6 @@
 
 ### (1)What are the pros and cons of polling and interrupt-based I/O?
 ### (2) What are the differences between PIO and DMA?
-### (3) How to protect memory-mapped I/O and explicit I/O instructions from being abused by
-malicious user process?
+### (3) How to protect memory-mapped I/O and explicit I/O instructions from being abused by malicious user process?
 ## 2. Condition variable
 ## 3. Bike
