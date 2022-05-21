@@ -60,4 +60,39 @@ Differences:
 
 ### (3) How to protect memory-mapped I/O and explicit I/O instructions from being abused by malicious user process?
 ## 2. Condition variable
+- Design idea: Just encapsulate one semaphore in the condvar_t. For the signal function, just activate the semaphore inside the condvar_t. 
+For the wait function, first release the mutex, then deactivate the semaphore, finally deactivate the mutex.
+
+- Code screeshots:
+
+condvar.h:
+
+![image](https://user-images.githubusercontent.com/64548919/169640876-ddd7af7d-b915-4500-94c5-1151b1a3530b.png)
+
+condvar.c:
+
+![image](https://user-images.githubusercontent.com/64548919/169640895-793c3c46-c737-4322-81cd-945351943fff.png)
+
+- Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/169640957-85a7faaf-8841-4375-8998-e09bf951cf32.png)
+
 ## 3. Bike
+
+- Design idea: Use 1 overall mutex to represent the lock, and 3 condition variables to represent the lock for the 3 workers.
+
+- Code screenshots:
+
+check_exercise.c:
+
+![image](https://user-images.githubusercontent.com/64548919/169641208-8756cc88-5870-47e7-99ac-881a04ab8518.png)
+
+![image](https://user-images.githubusercontent.com/64548919/169641211-ce1a8976-addf-4afa-a2b0-911e4b474e81.png)
+
+![image](https://user-images.githubusercontent.com/64548919/169641218-072e1bb3-b04e-4724-b1dc-459576a50c11.png)
+
+
+- Running result:
+
+![image](https://user-images.githubusercontent.com/64548919/169641185-ed900869-c358-47fc-8609-294b5ffb689b.png)
+
