@@ -59,6 +59,22 @@ Differences:
 > Reference: http://www.differencebetween.net/technology/difference-between-dma-and-pio/
 
 ### (3) How to protect memory-mapped I/O and explicit I/O instructions from being abused by malicious user process?
+
+For the memory-mapped I/O, to use memory-mapped I/O, the hardware needs to make the reigsters available. And in order to access the register, the OS needs to issue load/store instruction to the address. Thus it must be controlled by OS and can be protected from being abused by user process.
+
+Consider the following statements in the page 8 in the book chapter:
+
+![image](https://user-images.githubusercontent.com/64548919/169641693-8b0cea05-e9b4-4227-a827-5f21ce078e5a.png)
+
+
+Foe the explicit I/O, we let these instructions become privileged thus only OS can invoke these instructions.
+
+Consider the following statements in the page 8 in the book chapter.
+![image](https://user-images.githubusercontent.com/64548919/169641484-7184bd72-8e35-4f12-91ae-cb5fa36b465c.png)
+
+In order to avoid these instructions to be abused, we need to hide the details of device interactions with the major OS subsystems. 
+We solve this problem by the old technique of abstraction, as the device driver, which encapsulates the device interaction.
+
 ## 2. Condition variable
 - Design idea: Just encapsulate one semaphore in the condvar_t. For the signal function, just activate the semaphore inside the condvar_t. 
 For the wait function, first release the mutex, then deactivate the semaphore, finally deactivate the mutex.
