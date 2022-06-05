@@ -38,8 +38,11 @@ Thus time is:
 - CSCAN: 388ms
 
 For FIFO\SSTF\SCAN\CSCAN algorithm, their rotational latency is the same.
+
 12000r/min => 200r/s => 0.2r/ms => 5ms/r
+
 Since it is randomly distributed access, we treat it as half round: 2.5ms
+
 Since 6 accesses, total time = 2.5ms\*6 = 15ms
 
 The question does not tell us the transfer time, thus we omitted.
