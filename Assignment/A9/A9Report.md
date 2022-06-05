@@ -67,6 +67,8 @@ Thus we draw the diagram according to the running result:
 
 ![image](https://user-images.githubusercontent.com/64548919/172047576-f5e18f32-0776-48ee-ab04-d9c5e32d6870.png)
 
+Since 25-116 are free, the 25-116 bits are 1.
+
 Here is a brief explanation:
 
 ![943D19122D2C2ED57C09A072C90FBF55](https://user-images.githubusercontent.com/64548919/172047782-f4cb9db3-5d48-4cb2-874e-203c6de0e14d.jpg)
