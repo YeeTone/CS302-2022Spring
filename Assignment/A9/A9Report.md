@@ -57,10 +57,14 @@ Total Time:
 ## 2. Simple File System
 Consider adding one statement in `tools/mksfs.c`:
 
-![image](https://user-images.githubusercontent.com/64548919/172043908-a7018183-0019-424a-a0c9-8c59c1ef6081.png)
+![image](https://user-images.githubusercontent.com/64548919/172047370-e504f1a7-17f0-4562-9931-c3a54f53d20a.png)
 
 And the partial output of `make qemu` is:
 
-![image](https://user-images.githubusercontent.com/64548919/172043930-3d829091-2b76-4624-8275-ab3f4a8e8e97.png)
+![image](https://user-images.githubusercontent.com/64548919/172047327-966ce84c-b253-457c-99a1-af14024d3ebe.png)
+
+Thus we draw the diagram according to the running result:
+
+![image](https://user-images.githubusercontent.com/64548919/172047350-715022f5-c126-46e7-b68f-f54b785d397a.png)
 
 
