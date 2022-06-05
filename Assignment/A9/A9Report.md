@@ -55,3 +55,12 @@ Total Time:
 
 
 ## 2. Simple File System
+Consider adding one statement in `tools/mksfs.c`:
+
+![image](https://user-images.githubusercontent.com/64548919/172043908-a7018183-0019-424a-a0c9-8c59c1ef6081.png)
+
+And the partial output of `make qemu` is:
+
+![image](https://user-images.githubusercontent.com/64548919/172043930-3d829091-2b76-4624-8275-ab3f4a8e8e97.png)
+
+
