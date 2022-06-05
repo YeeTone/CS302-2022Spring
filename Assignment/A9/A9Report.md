@@ -28,14 +28,14 @@ For the seek time, first calculate their tracks:
 
 - FIFO: (100-70) + (70-30) + (90-30) + (120-90) + (120-60) + (60-20) = 260
 - SSTF: (100-90) + (90-70) + (70-60) + (60-30) + (30-20) + (120-20) = 180
-- SCAN: (120-100) + (200-120) + (200-90) + (90-70) + (70-60) + (60-30) + (30-20) = 280
-- CSCAN: (120-100) + (200-120) + (200-0) + (20-0) + (30-20) + (60-30) + (70-60) + (90-70) = 390
+- SCAN: (120-100) + (199-120) + (199-90) + (90-70) + (70-60) + (60-30) + (30-20) = 279
+- CSCAN: (120-100) + (199-120) + (199-0) + (20-0) + (30-20) + (60-30) + (70-60) + (90-70) = 388
 
 Thus time is:
 - FIFO: 260ms
 - SSTF: 180ms
-- SCAN: 280ms
-- CSCAN: 390ms
+- SCAN: 279ms
+- CSCAN: 388ms
 
 For FIFO\SSTF\SCAN\CSCAN algorithm, their rotational latency is same.
 12000r/min => 200r/s => 0.2r/ms => 5ms/r
@@ -43,10 +43,10 @@ Since it is randomly distributed access, we treat it as half round: 2.5ms
 Since 6 accesses, total time = 2.5ms\*6 = 15ms
 
 Total Time: 
-- FIFO: 275ms
-- SSTF: 195ms
-- SCAN: 295ms
-- CSCAN: 405ms
+- FIFO: 260+15=275ms
+- SSTF: 180+15=195ms
+- SCAN: 279+15=294ms
+- CSCAN: 388+15=403ms
 
 
 
