@@ -19,10 +19,23 @@
 a. Track Access Sequence:
 - FIFO: 70 => 30 => 90 => 120 => 60 => 20
 - SSTF: 90 => 70 => 60 => 30 => 20 => 120
-- SCAN:
-- CSCAN:
+- SCAN: 120 => 90 => 70 => 60 => 30 => 20
+- CSCAN: 120 => 20 => 30 => 60 => 70 => 90
+
+b. Time Calculation
+
+For the seek time, first calculate their tracks:
+
+- FIFO: (100-70) + (70-30) + (90-30) + (120-90) + (120-60) + (60-20) = 260
+- SSTF: (100-90) + (90-70) + (70-60) + (60-30) + (30-20) + (120-20) = 180
+- SCAN: (120-100) + (200-120) + (200-90) + (90-70) + (70-60) + (60-30) + (30-20) = 280
+- CSCAN: (120-100) + (200-120) + (200-20) + (30-20) + (60-30) + (70-60) + (90-70) = 350
+
+
 For FIFO\SSTF\SCAN\CSCAN algorithm, their rotational latency is same.
 12000r/min => 200r/s => 0.2r/ms => 5ms/r
+
+
 
 
 ## 2. Simple File System
