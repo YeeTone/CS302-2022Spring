@@ -65,6 +65,6 @@ And the partial output of `make qemu` is:
 
 Thus we draw the diagram according to the running result:
 
-![image](https://user-images.githubusercontent.com/64548919/172047350-715022f5-c126-46e7-b68f-f54b785d397a.png)
+![image](https://user-images.githubusercontent.com/64548919/172047442-ac0cb71d-2c10-42c5-b122-920057e95971.png)
 
 
