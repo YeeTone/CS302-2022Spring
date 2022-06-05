@@ -28,13 +28,13 @@ For the seek time, first calculate their tracks:
 
 - FIFO: (100-70) + (70-30) + (90-30) + (120-90) + (120-60) + (60-20) = 260
 - SSTF: (100-90) + (90-70) + (70-60) + (60-30) + (30-20) + (120-20) = 180
-- SCAN: (120-100) + (199-120) + (199-90) + (90-70) + (70-60) + (60-30) + (30-20) = 279
+- SCAN: (120-100) + (199-120) + (199-90) + (90-70) + (70-60) + (60-30) + (30-20) = 278
 - CSCAN: (120-100) + (199-120) + (199-0) + (20-0) + (30-20) + (60-30) + (70-60) + (90-70) = 388
 
 Thus time is:
 - FIFO: 260ms
 - SSTF: 180ms
-- SCAN: 279ms
+- SCAN: 278ms
 - CSCAN: 388ms
 
 For FIFO\SSTF\SCAN\CSCAN algorithm, their rotational latency is the same.
@@ -50,7 +50,7 @@ The question does not tell us the transfer time, thus we omitted.
 Total Time: 
 - FIFO: 260+15=275ms
 - SSTF: 180+15=195ms
-- SCAN: 279+15=294ms
+- SCAN: 278+15=293ms
 - CSCAN: 388+15=403ms
 
 
